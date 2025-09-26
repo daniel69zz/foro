@@ -19,6 +19,8 @@ input {
 a {
 	text-decoration: none;
 }
+
+
 .register,
 .login,
 .home,
@@ -32,6 +34,8 @@ a {
 	min-height: 100vh;
 	padding: 30px;
 }
+
+
 .registerTitle,
 .loginTitle,
 .homeTitle,
