@@ -11,10 +11,10 @@ function Login(){
             <h1 className="loginTitle">Ingrese su cuenta</h1>
             <form className="loginForm">
                 <label htmlFor="email">Dirección Email:</label>
-                <input type="text" name="email" id="email" />
+                <input type="text" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
 
                 <label htmlFor="password">Contraseña:</label>
-                <input type="password" name="password" id="password" />
+                <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)} />
                 <button className="loginBtn">Iniciar Sesión</button>
                 <p>
                     No tienes una cuenta? <a href="">Crea una</a>
