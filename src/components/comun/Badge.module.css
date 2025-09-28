@@ -1,4 +1,4 @@
-.sp_tag{
+/* .sp_tag{
     display: inline-block;
     color: white;
     width: 50%;
@@ -19,5 +19,65 @@
 }
 .sp_tag:active{
     background-color: black;
+} */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .25rem;
+
+  border: 1px solid transparent;
+  border-radius: .375rem;
+  padding: .125rem .5rem; /* py-0.5 px-2 aprox */
+  font-size: .75rem;      /* text-xs */
+  font-weight: 500;
+  white-space: nowrap;
+  width: fit-content;
+  overflow: hidden;
+  transition: color .2s ease, box-shadow .2s ease;
+}
+
+/* estados comunes */
+.badge:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px hsl(210 100% 50% / .35); /* ring */
+}
+.badge[aria-invalid="true"] {
+  /* ajusta si quieres un ring rojo cuando es inválido */
+  box-shadow: 0 0 0 3px hsl(0 85% 50% / .2);
+}
+/* iconos dentro del badge */
+.badge :global(svg) {
+  width: .75rem; height: .75rem; /* ~size-3 */
+  pointer-events: none;
+}
+
+/* VARIANTS */
+.badge[data-variant="default"] {
+  background: var(--primary, #0ea5e9);
+  color: var(--on-primary, #fff);
+}
+.badge[data-variant="secondary"] {
+  background: var(--secondary, #e5e7eb);
+  color: var(--on-secondary, #111827);
+}
+.badge[data-variant="destructive"] {
+  background: var(--destructive, #ef4444);
+  color: #fff;
+}
+.badge[data-variant="outline"] {
+  background: transparent;
+  color: var(--fg, currentColor);
+  border-color: var(--border, #e5e7eb);
+}
+
+/* (Opcional) estilo al estar dentro de un <a> y en hover */
+a .badge[data-variant="default"]:hover { filter: brightness(0.95); }
+a .badge[data-variant="secondary"]:hover { filter: brightness(0.95); }
+a .badge[data-variant="destructive"]:hover { filter: brightness(0.95); }
+a .badge[data-variant="outline"]:hover {
+  background: var(--accent, #f3f4f6);
+  color: var(--accent-fg, #111827);
 }
 
