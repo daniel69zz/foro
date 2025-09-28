@@ -1,0 +1,65 @@
+.avt{
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+}
+
+.fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--avatar-muted, #eef0f2);
+    width: 100%;
+    height: 100%;
+    font-weight: 600;
+    text-transform: uppercase;
+    user-select: none;
+}
+
+.avt[data-size="sm"]{
+    width: 24px;
+    height: 24px;
+}
+
+.avt[data-size="md"]{
+    width: 40px;
+    height: 40px;
+}
+
+.avt[data-size="lg"]{
+    width: 56px;
+    height: 56px;
+}
+
+.avt[data-size="xl"]{
+    width: 72px;
+    height: 72px;
+}
+
+
+.avt[data-shape="rounded"]{
+    border-radius: 9999px;
+}
+
+.avt[data-shape="square"]{
+    border-radius: 10px;
+}
+
+
+.avt[data-ring="true"]{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--avatar-ring, #22c55e);
+}
+
+/* Slot-directed (opcional) */
+/* [data-slot="avatar-fallback"] {
+  font-size: 0.75rem;
+  color: var(--avatar-muted-fg, #445);
+} */
