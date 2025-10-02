@@ -6,14 +6,22 @@ import styles from "./LoginCard.module.css"
 
 export default function LoginCard(){
     return(
-        <div className={styles.contentLoginCard}>
-            <Button text="BOTON OZIEL" onClick={() => alert("oziel")}/>
-            <Badge text="# Etiqueta"/>
-            <Avatar data-size="xl"  ring>
-                <AvatarImage src="ozi.png" />
-                <AvatarFallback>DR</AvatarFallback>
-            </Avatar>
+        <form>
+            <div>
+                <label htmlFor="user">Usuario:</label>
+                <input type="text" id="user" placeholder="Usuario"/>
+                <label htmlFor="password">Contraseña:</label>
+                <input type="password" id="password" placeholder="Contraseña"/>
+            </div>
+            <div>
+                <Button text="Iniciar Sesion"/>
 
-        </div>
+                <div>
+                    <label htmlFor="register">No tienes una cuenta?</label>
+                    <Button text="Registrarse"/>
+                </div>
+            </div>
+        </form>
     );
 }
+

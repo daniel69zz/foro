@@ -7,6 +7,7 @@ export function MyRoutes(){
     return (
         <Routes>
             <Route path='/' element={<ThreadPage/>}/>
+            <Route path='/login' element={<Login/>}/>
         </Routes>
     );
 }

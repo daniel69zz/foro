@@ -1,20 +1,53 @@
 import styled from "styled-components";
 import Button from "./Button";
+import { AiOutlineHome} from "react-icons/ai";
+import { LuContactRound } from "react-icons/lu";
+import { ImFire } from "react-icons/im";
+import {NavLink} from "react-router-dom";
+
 
 export function Navbar(){
     return (
         <Container>
-            <div className="NavbarItems">
-                <a href="">Home</a>
-                <a href="">Contactanos</a>
-                <a href="">Sobre Nosotros</a>
-                <a href="">Popular</a>
-                <Button text="Iniciar Sesion"></Button>
-            </div>
+            {
+                LinksNav.map(({label, icon, to}) => (
+                    <div className="NavbarItems" id="label">
+                        <NavLink to={to}>
+                            <div className="Linkicon">
+                                {icon}
+                            </div>
+
+                            <span>{label}</span>
+                        </NavLink>
+                    </div>
+                ))
+            }
+
+            <Button text="Iniciar Sesion" to="/login" size="lg"></Button>
+
         </Container>
     );
 }
 
+const LinksNav = [
+    {
+        label: "Home",
+        icon: <AiOutlineHome/>,
+        to: "/"
+    },
+
+    {
+        label: "Contactanos",
+        icon: <LuContactRound/>,
+        to: "/"
+    },
+
+    {
+        label: "Popular",
+        icon: <ImFire/>,
+        to: "/"
+    }
+]
 const Container = styled.div`
     height: 15%;
     display: flex;
@@ -28,5 +61,11 @@ const Container = styled.div`
         display: flex;
         justify-content: space-around;
         align-items: center;
+
+        a{
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
     }
 `;

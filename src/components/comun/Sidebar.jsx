@@ -62,7 +62,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
             <Divider/>
             <div className="Themecontent">
                 {
-                    sidebarOpen && <span>Modo Oziel</span>
+                    sidebarOpen && <span>Modo Oscuro</span>
                 }
                 <div className="Togglecontent">
                     <div className="grid theme-container">

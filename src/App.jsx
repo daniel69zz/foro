@@ -12,7 +12,7 @@ import { Navbar } from "./components/comun/Navbar";
 
 export const ThemeContext = React.createContext(null);
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
