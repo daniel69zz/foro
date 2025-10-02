@@ -3,7 +3,7 @@ import styles from "./Badge.module.css";
 import cn from "../utils/cn";
 
 
-export default function Badge({ text, className, variant = "default", asChild = false, ...props }) {
+export function Badge({ text, className, variant = "default", asChild = false, ...props }) {
 //   const Comp = asChild ? Slot : "span";
   return (
     <span

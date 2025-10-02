@@ -1,5 +1,5 @@
 import Button from "../comun/Button";
-import Badge from "../comun/Badge";
+import {Badge} from "../comun/Badge";
 import {Avatar, AvatarImage, AvatarFallback} from "../comun/Avatar";
 import styles from "./LoginCard.module.css"
 

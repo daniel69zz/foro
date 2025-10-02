@@ -27,7 +27,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
                 <div className="imgContent">
                     <img src={logo} alt="nose" />
                 </div>
-                <h2>LOGO REACT</h2>
+                <h2>UCB COMUNITY</h2>
             </div>
 
             {linksArray.map(({icon, label, to}) => (
@@ -139,11 +139,11 @@ const Container = styled.div`
         border: none;
         letter-spacing: inherit;
         color: inherit;
-            font-size: inherit;
-            text-align: inherit;
-            padding: 0;
-            font-family: inherit;
-            outline: none;
+        font-size: inherit;
+        text-align: inherit;
+        padding: 0;
+        font-family: inherit;
+        outline: none;
 
     }
 
@@ -172,6 +172,7 @@ const Container = styled.div`
     }
 
     .LinkContainer{
+        align-items: center;
         margin: 8px 0;
         padding: 0 15%;
         :hover{
@@ -186,6 +187,7 @@ const Container = styled.div`
             color: ${(props) => props.theme.text};
 
             .Linkicon{
+                
                 padding: ${v.smSpacing} ${v.mdSpacing};
                 display: flex;
                 svg {
