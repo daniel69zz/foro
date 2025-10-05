@@ -1,0 +1,57 @@
+.inputContainer {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+.inputContainer[data-tipo="tipo1"] {
+  margin-bottom: 4px;
+}
+
+
+.inputLabel {
+  display: block;
+  font-weight: 600;
+  font-size: 9px;
+  margin: 0 0 2px 4px;
+} 
+
+.inputWrapper {
+  display: inline-block;
+  border-radius: 8px;
+  padding: 1.5px; /* espacio para el “envoltorio” al enfocar */
+  transition: background-color 0.2s;
+  width: 250px;
+}
+
+.inputWrapper:focus-within {
+  background-color: #cacaca; /* halo sutil alrededor */
+}
+
+.inputInner {
+  display: flex;
+  align-items: center;
+  border: 1px solid transparent; /* borde invisible por defecto */
+  border-radius: 6px;
+  padding: 5px 10px;
+  background-color: #f5f5f5;     /* fondo ligeramente gris */
+  transition: border-color 0.2s, background-color 0.2s;
+  width: 100%;
+  max-width: 400px;            /* ancho máximo para que no se extienda demasiado */
+}
+.inputInner input {
+  border: none;
+  outline: none;
+  flex: 1;
+  background: transparent;       /* para no tapar el fondo del contenedor */
+  max-width: none;
+  font-size: 8px;
+}
+
+.inputInner:focus-within {
+  border-color: #a4a3a3;            /* borde ultra delgado gris */
+}
+
+.inputIcon {
+  width: 10px;
+  height: 10px;
+  margin-right: 8px;
+}

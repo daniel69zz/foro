@@ -1,0 +1,35 @@
+.btn {
+  /* obligatorio: que respete width/height y centre el icono */
+  display: inline-flex;        /* o "flex" si prefieres bloque */
+  align-items: center;
+  justify-content: center;
+
+  margin: 0;                   /* elimina márgenes heredados/por defecto */
+  padding: 0;
+  width: 9px;                 /* pon el tamaño que quieras */
+  height: 9px;
+
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  box-sizing: border-box;
+  line-height: 0;              /* evita espacios extra por la línea base */
+  vertical-align: middle;      /* evita gaps si el botón está inline con texto */
+
+  margin-left: auto;
+}
+
+/* SVG/Icono */
+.icon {
+  display: block;     /* evita gaps por ser inline SVG */
+  width: 100%;
+  height: 100%;
+  color: #a4a3a3;
+  transition: color .12s, transform .12s;
+}
+
+/* hover en el botón (mejor aplicar hover al botón) */
+.btn:hover .icon {
+  color: #7b7b85;
+}
