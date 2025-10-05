@@ -13,6 +13,7 @@
     "@fontsource/open-sans": "^5.2.7",
     "@radix-ui/react-avatar": "^1.1.10",
     "firebase": "^12.3.0",
+    "fontsource": "^0.0.1-security",
     "lucide-react": "^0.544.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
