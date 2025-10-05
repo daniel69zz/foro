@@ -1,0 +1,11 @@
+.linkk {
+  color: #0ea5e9;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: color 0.2s;
+}
+
+.linkk:hover {
+  color: #0284c7;
+}

@@ -1,3 +1,10 @@
+
+.contentLoginCard2 {
+  width: 350px;
+  max-width: 100%;
+  display: flex;
+  justify-content: flex-start;
+}
 .content {
   display: flex;
   justify-content: center;
@@ -9,10 +16,3 @@
 }
 
 
-.contentLoginCard2{
-  width: 200px;          
-  height: 200px;              
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
