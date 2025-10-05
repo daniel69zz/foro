@@ -17,10 +17,10 @@
   align-items: center;
   justify-content: center;
   gap: .5rem;
-  height: 2.25rem;        /* ~36px */
+  height: 2.25rem;        
   padding: 0 1rem;
-  border-radius: .375rem; /* 6px */
-  font-size: .875rem;     /* 14px */
+  border-radius: .375rem; 
+  font-size: .875rem;     
   font-weight: 500;
   transition: .2s ease;
   background: var(--bg, #0ea5e9);
@@ -28,11 +28,9 @@
   border: none;
 }
 
-/* estados base */
 .btn:disabled { pointer-events: none; opacity: .5; }
 .btn:focus-visible { outline: none; box-shadow: 0 0 0 3px hsl(210 100% 50% / .35); }
 
-/* VARIANTS (cambias tokens con CSS vars o agregas bordes/hover) */
 .btn[data-variant="default"]     { --bg: #0ea5e9; --fg: #fff; }
 .btn[data-variant="destructive"] { --bg: #ef4444; --fg: #fff; }
 .btn[data-variant="outline"]     { background: transparent; color: #111; border: 1px solid #e5e7eb; }
@@ -40,7 +38,6 @@
 .btn[data-variant="link"]        { background: transparent; color: #0ea5e9; text-decoration: underline; text-underline-offset: 4px; }
 .btn[data-variant="login"]    { --bg: black; --fg: #fff; font-size: 0.6rem; border-radius: 6px;}
 
-/* SIZES */
 .btn[data-size="sm"]   { height: 2rem;   padding: 0 .75rem; }
 .btn[data-size="md"]   { height: 2.25rem; padding: .5rem 1rem; } /* default */
 .btn[data-size="lg"]   { height: 2.5rem;  padding: 0 1.5rem; }

@@ -7,6 +7,7 @@ import {User, Mail, Lock} from "lucide-react";
 import Link from "../comun/Link";
 import IconButton from "../comun/IconButton";
 
+
 export default function LoginCard(){
     return(
         <div className={styles.contentLoginCard}>
@@ -22,3 +23,4 @@ export default function LoginCard(){
         </div>
     );
 }
+
