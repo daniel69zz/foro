@@ -1,25 +1,47 @@
 import styled from "styled-components";
 import { Badge } from "../comun/Badge";
 
+import { MdOutlineMessage } from "react-icons/md";
+import { FaRegClock } from "react-icons/fa6";
 
+import Texto from "../comun/Texto";
 
-import img from "../../assets/img_thread.png";
+function time(){
+    const ahora = new Date();
+    const hora = ahora.getHours();
+    const minutos = ahora.getMinutes();
+
+    return `${hora}:${minutos}`;
+}
 
 export function ThreadCard(){
     return (
         <Card>
             <div className="ThreadHeadContent">
                 <div className="ImgThread">
-                    <img src={img}/>
+                    <MdOutlineMessage/>
                 </div>
 
                 <h2>Esto sera un tema de conversacion del foro.</h2>
             </div>
 
+            <div className="ThreadInfoContent">
+                <Badge text="Sarah Chen" variant="label"/>
+                <Badge text="•" variant="label"/>
+                <FaRegClock/>
+                <Badge text={time()} variant="label"/>
+                <Badge text="•" variant="label"/>
+                <Badge text="Development"></Badge>
+            </div>
+
             <div className="ThreadBodyContent">
-                <Badge text="oziel"/>
-                <Badge text="frederick"/>
-                <Badge text="freddy"/>
+                <Texto>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
+                    Consectetur ut tempora dolores dolor.</Texto>
+                <div className="ThreadBadges">
+                    <Badge text="oziel"/>
+                    <Badge text="frederick"/>
+                    <Badge text="freddy"/>
+                </div>
             </div>
 
 
@@ -28,11 +50,11 @@ export function ThreadCard(){
 }
 
 const Card = styled.article`
-    background-color: #2675cf;
+    background-color: ${(props) => props.theme.cardcolor};
     border-radius: 10px;
     width: 90%;               /* ancho máximo de la “card” */
     margin: 16px auto;              /* centrado horizontal */
-    padding: 12px 16px;
+    padding: 30px 18px;
 
     .ThreadHeadContent{
         display: flex;
@@ -47,12 +69,34 @@ const Card = styled.article`
         }
 
         h2{
-            
+            color: ${(props) => props.theme.text}
+        }
+
+        .ImgThread{
+            svg{
+                color: ${(props) => props.theme.text};
+                height: 60px;
+                width: 60px;
+            }
+        }
+    }
+
+    .ThreadInfoContent{
+
+        svg{
+            margin-left: 5px;
+            color: ${(props) => props.theme.labelcolor};  
         }
     }
 
     .ThreadBodyContent{
-        display: flex;
-        gap: 12px;
+
+        .ThreadBadges{
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
     }
 `;

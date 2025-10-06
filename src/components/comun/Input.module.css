@@ -4,10 +4,13 @@
 }
 .inputContainer[data-tipo="tipo1"] {
   margin-bottom: 4px;
+  
 }
 
-
-.inputLabel {
+input{
+  padding: 5px;
+}
+.inputLabel { 
   display: block;
   font-weight: 600;
   font-size: 9px;

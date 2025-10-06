@@ -2,15 +2,17 @@ import React, { useState } from "react";
 import { BrowserRouter } from "react-router-dom"
 import { MyRoutes } from "./routers/routes"
 
+import { Navbar } from "./components/comun/Navbar";
 import { Sidebar } from './components/comun/Sidebar';
 import { Light, Dark } from "./styles/Theme"
 
 import styled from "styled-components"
 import { ThemeProvider } from "styled-components"
-import { Navbar } from "./components/comun/Navbar";
+
 
 
 export const ThemeContext = React.createContext(null);
+
 function App() {
   const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
@@ -25,7 +27,7 @@ function App() {
             <Container className={sidebarOpen ? "active" : ""}>
               <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
               <Main>
-                <Navbar/>
+                <Navbar className="navbar"/>
                 <MyRoutes/>
               </Main>
             </Container>
@@ -38,14 +40,14 @@ function App() {
   )
 }
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: 120px auto;    // antes 90px
-    background: ${({theme}) => theme.bgtotal};
-    min-height: 100vh;
-    transition: all 0.3s;
-    &.active{
-      grid-template-columns: 300px auto;
-    }
+  display: grid;
+  grid-template-columns: 120px auto;    
+  background: ${({theme}) => theme.bgtotal};
+  min-height: 100vh;
+  transition: all 0.3s;
+  &.active{
+    grid-template-columns: 300px auto;
+  }
 `;
 
 

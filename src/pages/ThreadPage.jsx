@@ -12,7 +12,7 @@ export function ThreadPage(){
 }
 
 const List = styled.div`
-    width: 80%;
+    width: 100%;
     margin: 24px auto;
     padding: 0 12px;
     display: grid;

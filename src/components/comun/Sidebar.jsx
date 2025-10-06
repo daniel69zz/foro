@@ -1,6 +1,12 @@
 import styled from "styled-components";
 import logo from "../../assets/react.svg";
-import {AiOutlineLeft, AiOutlineHome, AiOutlineApartment, AiOutlineSetting} from "react-icons/ai";
+import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
+import { FaLaptopCode } from "react-icons/fa";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { FiCoffee, FiBookOpen  } from "react-icons/fi";
+import { IoMdTrendingUp } from "react-icons/io";
+
+
 import {MdLogout, MdOutlineAnalytics} from "react-icons/md";
 import {v} from "../../styles/Variables";
 import {NavLink} from "react-router-dom";
@@ -15,7 +21,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
     const {setTheme, theme} = useContext(ThemeContext);
 
     const CambiarTheme = () => {
-        setTheme((theme) => (theme === "light" ? "dark" : "light"))
+        setTheme((theme) => (theme === "light" ? "dark" : "light"));
     }
 
     return (
@@ -84,19 +90,29 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
 //#region DATA LINKS
 const linksArray = [
     {
-        label:"Home",
-        icon:<AiOutlineHome/>,
+        label:"Popular",
+        icon:<IoMdTrendingUp/>,
         to: "/"
     },
     {
-        label:"Estadisticas",
-        icon:<MdOutlineAnalytics/>,
-        to: "/estadisticas" // no existe
+        label:"Programacion y más",
+        icon:<FaLaptopCode/>,
+        to: "/development" 
     },
     {
-        label:"Productos",
-        icon:<AiOutlineApartment/>,
-        to: "/productos" // no existe
+        label:"Gaming",
+        icon:<IoGameControllerOutline/>,
+        to: "/gaming" 
+    },
+    {
+        label: "General",
+        icon: <FiCoffee/>,
+        to: "/general"
+    },
+    {
+        label: "Aprender",
+        icon: <FiBookOpen/>,
+        to: "/learning"
     }
 ]
 
@@ -104,7 +120,7 @@ const secondarylinksArray = [
     {
         label:"Configuración",
         icon:<AiOutlineSetting/>,
-        to: "/"
+        to: "/configuracion"
     },
     {
         label:"Salir",
@@ -182,6 +198,9 @@ const Container = styled.div`
         .Links{
             display: flex;
             align-items: center;
+            
+            justify-content: ${({isOpen}) => isOpen ? "flex-start":"center"};
+
             text-decoration: none;
             padding: cal(${v.smSpacing} - 2px) 0;
             color: ${(props) => props.theme.text};
@@ -199,7 +218,10 @@ const Container = styled.div`
                     svg{
                         color: ${(props) => props.theme.bg4};
                     }
+
                 }
+                color: ${(props) => props.theme.bg4};
+
             }
         }
     }

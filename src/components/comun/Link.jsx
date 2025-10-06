@@ -5,7 +5,7 @@ export default function Link({ children, href = "#", className, external = false
   return (
     <a
       href={href}
-  className={cn(styles.link, className)}
+      className={cn(styles.link, className)}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       {...props}
     >

@@ -12,14 +12,20 @@ export default function LoginCard(){
     return(
         <div className={styles.contentLoginCard}>
             <IconButton className={styles.botonCerrar}/>
-            <Texto texto="Bienvenido de vuelta" icono={User} className={styles.texto1} iconClassName={styles.icono1}/>
-            <Texto texto="Ingresa a tu cuenta para poder interactuar en el foro" hasAnIcon={false} className={styles.texto2}/>
-            <Input id="input1" icon={Mail} placeholderText='Ingresa tu email' labelText="Email" />
-            <Input id="input2" icon={Lock} placeholderText='Ingresa tu contraseña' labelText="Password" type="password" tipo="tipo1"/>
+            <Texto icono={User} className={styles.texto1} iconClassName={styles.icono1}>
+                Bienvenido de vuelta
+            </Texto>
+            <Texto hasAnIcon={false} className={styles.texto2}>
+                Ingresa a tu cuenta para poder interactuar en el foro
+            </Texto>
+            <Input id="in_email" icon={Mail} placeholderText='Ingresa tu email' labelText="Email" />
+            <Input id="in_hash" icon={Lock} placeholderText='Ingresa tu contraseña' labelText="Password" type="password" tipo="tipo1"/>
             <Link href="https://google.com" external className={styles.link1}>La olvidaste?</Link>
-            <Button text="Iniciar Sesion" className={styles.boton1} data-variant="login" size="login"/>
+            <Button className={styles.boton1} data-variant="login" size="login">
+                Iniciar Sesion
+            </Button>
             <Line/>
-            <Texto texto="Ingresa tu contraseña"/>
+            <Texto>Ingresa tu contraseña</Texto>
         </div>
     );
 }

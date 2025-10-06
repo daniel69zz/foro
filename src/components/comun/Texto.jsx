@@ -2,12 +2,19 @@ import cn from "../utils/cn";
 import styles from "./Texto.module.css";
 import {Home} from "lucide-react";
 
-export default function Texto({ texto, icono, className, iconClassName, hasAnIcon = true}) {
+import styled from "styled-components";
+
+export default function Texto({ children, icono, className, iconClassName, hasAnIcon = true}) {
   const Icon = icono || Home;
   return (
-    <div className={cn(styles.texto, className)}>
+    <Container className={cn(styles.texto, className)}>
       {hasAnIcon && <Icon className={cn(styles.icono, iconClassName)}/>}
-      <span>{texto}</span>
-    </div>
+      <span>{children}</span>
+    </Container>
   );
 }
+
+const Container = styled.div`
+  color: ${(props) => props.theme.text};
+`;
+

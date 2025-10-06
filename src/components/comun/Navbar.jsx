@@ -4,6 +4,7 @@ import { AiOutlineHome} from "react-icons/ai";
 import { LuContactRound } from "react-icons/lu";
 import { ImFire } from "react-icons/im";
 import {NavLink} from "react-router-dom";
+import {v} from "../../styles/Variables";
 
 
 export function Navbar(){
@@ -12,7 +13,7 @@ export function Navbar(){
             {
                 LinksNav.map(({label, icon, to}) => (
                     <div className="NavbarItems" id="label">
-                        <NavLink to={to}>
+                        <NavLink to={to} className={({isActive}) => `Links${isActive ? ` active`:``}`}>
                             <div className="Linkicon">
                                 {icon}
                             </div>
@@ -23,7 +24,7 @@ export function Navbar(){
                 ))
             }
 
-            <Button text="Iniciar Sesion" to="/login" size="lg"></Button>
+            <Button to="/login" size="lg">Iniciar Sesion</Button>
 
         </Container>
     );
@@ -39,13 +40,13 @@ const LinksNav = [
     {
         label: "Contactanos",
         icon: <LuContactRound/>,
-        to: "/"
+        to: "/contactos"
     },
 
     {
         label: "Popular",
         icon: <ImFire/>,
-        to: "/"
+        to: "/popular"
     }
 ]
 const Container = styled.div`
@@ -62,10 +63,29 @@ const Container = styled.div`
         justify-content: space-around;
         align-items: center;
 
-        a{
+        .Links{
+            text-decoration: none;
             display: flex;
             align-items: center;
             gap: 8px;
+            color: ${(props) => props.theme.text};
+            .Linkicon{
+                padding: ${v.smSpacing} ${v.mdSpacing};
+                display: flex;
+
+                svg{
+                    font-size: 25px;
+                }
+            }
+            &.active{
+                color: ${(props) => props.theme.bg4};
+                .Linkicon{
+                    svg{
+                        color: ${(props) => props.theme.bg4};
+                    }
+                }
+            }
         }
+       
     }
 `;

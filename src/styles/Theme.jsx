@@ -1,4 +1,7 @@
 export const Light ={
+    cardcolor: "#3f60c5",
+    labelcolor: "#000",
+    
     body: "#fff",
     text: "#202020",
     bodyRgba: "255, 255, 255",
@@ -48,6 +51,9 @@ export const Light ={
   lightcheckbox: "#fce100"
 }
 export const Dark = {
+    cardcolor: "#1a1f2e",
+    labelcolor: "#717182",
+
     bgtgderecha:"#21252B",
     body: "#202020",
     text: "#fff",
@@ -70,7 +76,7 @@ export const Dark = {
     bg3: "rgb(50,50,50)",
     primary: "rgb(52, 131, 235)",
     bg4:"#9247FC",
-    bgtotal:"#21252B",
+    bgtotal:"#0a0f1c",
     barrascroll: "#A18AFF",
 
     gray900: "#000000",

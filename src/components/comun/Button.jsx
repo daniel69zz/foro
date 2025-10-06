@@ -3,17 +3,19 @@ import cn from "../utils/cn";
 import {NavLink} from "react-router-dom";
 
 
-export default function Button({className, variant = "default", 
+export default function Button({ children, className, variant = "default", 
     size = "md", asChild = false, text, onClick, ...props}){
     return(
-        <button
-            className={cn(styles.btn, className)}
-            data-variant={variant}
-            data-size={size} 
-            onClick={onClick}
-            {...props}
-        >{text} 
-        </button>   
+        <NavLink to={props.to}>
+            <button
+                className={cn(styles.btn, className)}
+                data-variant={variant}
+                data-size={size} 
+                onClick={onClick}
+                {...props}
+            >{children} 
+            </button>  
+        </NavLink> 
     );
 }
 

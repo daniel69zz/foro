@@ -1,16 +1,18 @@
-// import { Slot } from "@radix-ui/react-slot"; // opcional, si quieres asChild
 import styles from "./Badge.module.css";
 import cn from "../utils/cn";
+import styled from "styled-components";
 
-
-export function Badge({ text, className, variant = "default", asChild = false, ...props }) {
-//   const Comp = asChild ? Slot : "span";
+export function Badge({ text, className, variant = "default", ...props }) {
   return (
-    <span
+    <Container
       className={cn(styles.badge, className)}
       data-variant={variant}
       {...props}
     >{text}
-    </span>
+    </Container>
   );
 }
+
+const Container = styled.span`
+  color: ${(props) => props.theme.labelcolor};
+`;
