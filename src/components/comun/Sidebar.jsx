@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import logo from "../../assets/react.svg";
+import logo from "../../assets/fondo_v3.png";
 import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
 import { FaLaptopCode } from "react-icons/fa";
 import { IoGameControllerOutline } from "react-icons/io5";
@@ -31,7 +31,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
             </button>
             <div className="LogoContent">
                 <div className="imgContent">
-                    <img src={logo} alt="nose" />
+                    <img src={logo} alt="nose"/>
                 </div>
                 <h2>UCB COMUNITY</h2>
             </div>
