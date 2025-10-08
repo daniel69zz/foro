@@ -4,7 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "../comun/Avatar";
 import {v} from "../../styles/Variables";
 
 import { Badge } from "../comun/Badge";
-
+import { Texto } from "../comun/Texto"
 
 function fecha(){
     const mes = new Date().getMonth();
@@ -71,16 +71,18 @@ export function ThreadContent(){
                 <Divider/>
 
                 <div className="ThreadContent">
-                    <Badge text={fecha()} variant="label"/>
-                    <p>
+                    <div className="ThreadContentHeader">
+                        <Badge text={fecha()} variant="label" pad={false}/>
+                    </div>
+                    <Texto hasAnIcon={false}>
                         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quia. Minus ipsa ratione amet, esse hic corporis soluta rerum vel doloribus quia suscipit, omnis ea quo? A asperiores praesentium repudiandae, accusantium iure earum nulla consectetur, neque molestiae vitae eum reprehenderit?
-                    </p>
+                    </Texto>
 
-                    <p>
+                    <Texto hasAnIcon={false}>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto optio expedita repudiandae vitae a incidunt unde iste reprehenderit porro voluptate.
-                    </p>
+                    </Texto>
 
-                    <p>VIVA EL PSOOOOOOOOOOOOOOOO!!</p>
+                    <Texto hasAnIcon={false}>VIVA EL PSOOOOOOOOOOOOOOOO!!</Texto>
                 </div>
             </div>
         </Container>
@@ -109,6 +111,11 @@ const Container = styled.div`
         .ThreadContent{
             color: ${(props) => props.theme.text};
             padding: 20px;
+            .ThreadContentHeader{
+                display: flex;
+                gap: 12px
+            }
+            
             p{
                 margin-bottom: 5px;
             }

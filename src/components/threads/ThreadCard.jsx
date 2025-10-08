@@ -7,13 +7,7 @@ import { FaRegClock, FaRegShareFromSquare  } from "react-icons/fa6";
 
 import {Texto} from "../comun/Texto";
 
-function time(){
-    const ahora = new Date();
-    const hora = ahora.getHours();
-    const minutos = ahora.getMinutes();
-
-    return `${hora}:${minutos}`;
-}
+import { hora } from "../utils/time"
 
 export function ThreadCard({content = true}){
     return (
@@ -30,7 +24,7 @@ export function ThreadCard({content = true}){
                 <Badge text="Sarah Chen" variant="label"/>
                 <Badge text="•" variant="label"/>
                 <FaRegClock/>
-                <Badge text={time()} variant="label"/>
+                <Badge text={hora()} variant="label"/>
                 <Badge text="•" variant="label"/>
                 <Badge text="Development"></Badge>
             </div>
@@ -38,7 +32,7 @@ export function ThreadCard({content = true}){
             {
                 content && (
                     <div className="ThreadBodyContent">
-                        <Texto>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
+                        <Texto hasAnIcon={false}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
                             Consectetur ut tempora dolores dolor.</Texto>
                         <div className="ThreadBadges">
                             <Badge text="# oziel"/>

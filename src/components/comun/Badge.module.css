@@ -1,7 +1,6 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: .25rem;
 
   border: 1px solid transparent;
@@ -11,7 +10,7 @@
   font-weight: 500;
   white-space: nowrap;
   width: fit-content;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: color .2s ease, box-shadow .2s ease;
 }
 
@@ -23,11 +22,6 @@
 .badge[aria-invalid="true"] {
   /* ajusta si quieres un ring rojo cuando es inválido */
   box-shadow: 0 0 0 3px hsl(0 85% 50% / .2);
-}
-/* iconos dentro del badge */
-.badge :global(svg) {
-  width: .75rem; height: .75rem; /* ~size-3 */
-  pointer-events: none;
 }
 
 /* VARIANTS */
@@ -41,13 +35,12 @@
 }
 .badge[data-variant="label"] {
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 1  0px;
   font-weight: bold;
 }
-/* .badge[data-variant="outline"] {
-  background: transparent;
-  color: var(--fg, currentColor);
-  border-color: var(--border, #e5e7eb);
-} */
+
+.badge[ data-pad = "false"]{
+  padding: 0 0;
+}
 
 
