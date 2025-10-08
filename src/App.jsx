@@ -28,7 +28,9 @@ function App() {
               <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
               <Main>
                 <Navbar className="navbar"/>
-                <MyRoutes/>
+                <Content>
+                  <MyRoutes/>
+                </Content>
               </Main>
             </Container>
           </BrowserRouter>
@@ -43,17 +45,32 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 120px auto;    
   background: ${({theme}) => theme.bgtotal};
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 100dvh;
+  min-height: 0;
+
   transition: all 0.3s;
   &.active{
-    grid-template-columns: 300px auto;
+    /* grid-template-columns: 300px auto; */
+    grid-template-columns: 300px 1fr;
   }
 `;
 
 
 const Main = styled.main`
-  flex: 1;
+  /* flex: 1;
   display: flex;
-  flex-direction: column;
+  flex-direction: column; */
+
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-width: 0;
+  min-height: 0;
+`;
+
+const Content = styled.div`
+  overflow: auto;   /* ⬅️ el scroll vive aquí */
+  min-height: 0;
+  -webkit-overflow-scrolling: touch;
 `;
 export default App

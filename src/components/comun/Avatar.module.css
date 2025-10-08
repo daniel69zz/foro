@@ -5,6 +5,14 @@
     flex-shrink: 0;
 }
 
+.AvatarInfo{
+    /* margin: 7px auto; */
+    margin-top: 7px;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+}
+
 .image{
     width: 100%;
     height: 100%;
@@ -42,6 +50,11 @@
 .avt[data-size="xl"]{
     width: 72px;
     height: 72px;
+}
+
+.avt[data-size="xxl"]{
+    width: 96px;
+    height: 96px;
 }
 
 

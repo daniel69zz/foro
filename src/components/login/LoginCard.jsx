@@ -1,6 +1,6 @@
 import styles from "./LoginCard.module.css"
 import Input from "../comun/Input";
-import Texto from "../comun/Texto";
+import {Texto} from "../comun/Texto";
 import Button from "../comun/Button";
 import Line from "../comun/Line";
 import {User, Mail, Lock} from "lucide-react";

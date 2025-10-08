@@ -4,7 +4,7 @@ import {Home} from "lucide-react";
 
 import styled from "styled-components";
 
-export default function Texto({ children, icono, className, iconClassName, hasAnIcon = true}) {
+export function Texto({ children, icono, className, iconClassName, hasAnIcon = true}) {
   const Icon = icono || Home;
   return (
     <Container className={cn(styles.texto, className)}>

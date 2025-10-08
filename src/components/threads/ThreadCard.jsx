@@ -4,7 +4,7 @@ import { Badge } from "../comun/Badge";
 import { MdOutlineMessage } from "react-icons/md";
 import { FaRegClock } from "react-icons/fa6";
 
-import Texto from "../comun/Texto";
+import {Texto} from "../comun/Texto";
 
 function time(){
     const ahora = new Date();
@@ -14,9 +14,9 @@ function time(){
     return `${hora}:${minutos}`;
 }
 
-export function ThreadCard(){
+export function ThreadCard({content = true}){
     return (
-        <Card>
+        <Card $conten={content}>
             <div className="ThreadHeadContent">
                 <div className="ImgThread">
                     <MdOutlineMessage/>
@@ -34,15 +34,22 @@ export function ThreadCard(){
                 <Badge text="Development"></Badge>
             </div>
 
-            <div className="ThreadBodyContent">
-                <Texto>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
-                    Consectetur ut tempora dolores dolor.</Texto>
-                <div className="ThreadBadges">
-                    <Badge text="oziel"/>
-                    <Badge text="frederick"/>
-                    <Badge text="freddy"/>
-                </div>
-            </div>
+            {
+                content && (
+                    <div className="ThreadBodyContent">
+                        <Texto>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
+                            Consectetur ut tempora dolores dolor.</Texto>
+                        <div className="ThreadBadges">
+                            <Badge text="# oziel"/>
+                            <Badge text="# frederick"/>
+                            <Badge text="# freddy"/>
+                            <Badge text="# chalco"/>
+
+                        </div>
+                    </div>
+                )
+            }
+            
 
 
         </Card>
@@ -52,7 +59,7 @@ export function ThreadCard(){
 const Card = styled.article`
     background-color: ${(props) => props.theme.cardcolor};
     border-radius: 10px;
-    width: 90%;               /* ancho máximo de la “card” */
+    width: ${({$conten}) => $conten ? "90%" : "98%"};               
     margin: 16px auto;              /* centrado horizontal */
     padding: 30px 18px;
 

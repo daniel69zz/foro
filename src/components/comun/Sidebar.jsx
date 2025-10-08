@@ -7,7 +7,7 @@ import { FiCoffee, FiBookOpen  } from "react-icons/fi";
 import { IoMdTrendingUp } from "react-icons/io";
 
 
-import {MdLogout, MdOutlineAnalytics} from "react-icons/md";
+import {MdLogout} from "react-icons/md";
 import {v} from "../../styles/Variables";
 import {NavLink} from "react-router-dom";
 import { useContext } from "react";
@@ -25,7 +25,7 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
     }
 
     return (
-        <Container isOpen={sidebarOpen} themeUse={theme}>
+        <Container $isOpen={sidebarOpen} $themeUse={theme}>
             <button onClick={ModSidebaropen} className="SidebarButton">
                 <AiOutlineLeft/>
             </button>
@@ -137,6 +137,12 @@ const Container = styled.div`
     background-color: ${(props) => props.theme.bg};
     position: sticky;
 
+    top: 0;
+    height: 100dvh;
+    /* overflow: auto; */
+    min-width: 0;
+
+
     .SidebarButton {
         position: absolute;
         top: ${v.xxlSpacing};
@@ -151,7 +157,7 @@ const Container = styled.div`
         justify-content: center;
         cursor: pointer;
         transition: all 0.3s;
-        transform: ${({isOpen})  => (isOpen ? `initial`:`rotate(180deg)`)};
+        transform: ${({$isOpen})  => ($isOpen ? `initial`:`rotate(180deg)`)};
         border: none;
         letter-spacing: inherit;
         color: inherit;
@@ -179,11 +185,11 @@ const Container = styled.div`
             
             cursor:pointer;
             transition: all 0.3s;
-            transform: ${({isOpen}) => (isOpen ? `scale(0.7)`:`scale(1.5)`)};
+            transform: ${({$isOpen}) => ($isOpen ? `scale(0.7)`:`scale(1.5)`)};
         }
 
         h2{
-           display: ${({isOpen}) => (isOpen ? `block`:`none`)}; 
+           display: ${({$isOpen}) => ($isOpen ? `block`:`none`)}; 
         }
     }
 
@@ -199,10 +205,10 @@ const Container = styled.div`
             display: flex;
             align-items: center;
             
-            justify-content: ${({isOpen}) => isOpen ? "flex-start":"center"};
+            justify-content: ${({$isOpen}) => $isOpen ? "flex-start":"center"};
 
             text-decoration: none;
-            padding: cal(${v.smSpacing} - 2px) 0;
+            padding: calc(${v.smSpacing} - 2px) 0;
             color: ${(props) => props.theme.text};
 
             .Linkicon{
@@ -237,7 +243,7 @@ const Container = styled.div`
         }
 
         .Togglecontent{
-            margin: ${({isOpen}) => (isOpen ? `auto 40px`:`auto 15px`)};
+            margin: ${({$isOpen}) => ($isOpen ? `auto 40px`:`auto 15px`)};
             height: 20px;
             width: 36px;
             border-radius: 10px;
@@ -251,8 +257,11 @@ const Container = styled.div`
                     display: grid;
                     justify-items: center;
                     align-content: center;
-                    height: 100vh;
-                    width: 100vw;
+                    /* height: 100vh;
+                    width: 100vw; */
+                    height: auto;
+                    width: auto;
+
                     font-family: "Lato", sans-serif;
                 }
 
@@ -281,7 +290,7 @@ const Container = styled.div`
                             left: 0;
                             right: 0;
                             bottom: 0;
-                            background: ${({themeUse}) => (themeUse === "light" ? v.lightcheckbox : v.checkbox)};
+                            background: ${({$themeUse}) => ($themeUse === "light" ? v.lightcheckbox : v.checkbox)};
                             transition: 0.4s;
                             &::before{
                                 position: absolute;

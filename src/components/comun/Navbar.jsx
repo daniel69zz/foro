@@ -12,7 +12,7 @@ export function Navbar(){
         <Container>
             {
                 LinksNav.map(({label, icon, to}) => (
-                    <div className="NavbarItems" id="label">
+                    <div className="NavbarItems" key={label}>
                         <NavLink to={to} className={({isActive}) => `Links${isActive ? ` active`:``}`}>
                             <div className="Linkicon">
                                 {icon}
@@ -50,7 +50,14 @@ const LinksNav = [
     }
 ]
 const Container = styled.div`
-    height: 15%;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    min-height: 56px;
+    gap: 12px;
+    padding: 8px 16px;
+
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -58,10 +65,10 @@ const Container = styled.div`
     background-color: ${(props) => props.theme.bg};
 
     .NavbarItems{
-        width: 100%;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        gap: 16px;
 
         .Links{
             text-decoration: none;
@@ -74,7 +81,7 @@ const Container = styled.div`
                 display: flex;
 
                 svg{
-                    font-size: 25px;
+                    font-size: 22px;
                 }
             }
             &.active{
