@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Badge } from "../comun/Badge";
 
 import { MdOutlineMessage } from "react-icons/md";
-import { FaRegClock } from "react-icons/fa6";
+import { FaRegHeart } from "react-icons/fa";
+import { FaRegClock, FaRegShareFromSquare  } from "react-icons/fa6";
 
 import {Texto} from "../comun/Texto";
 
@@ -44,7 +45,23 @@ export function ThreadCard({content = true}){
                             <Badge text="# frederick"/>
                             <Badge text="# freddy"/>
                             <Badge text="# chalco"/>
+                        </div>
 
+                        <div className="ThreadInfoIcons">
+                            <div className="IconCount">
+                                <MdOutlineMessage />
+                                <span>32</span>
+                            </div>
+                            
+                            <div className="IconCount">
+                                <FaRegHeart />
+                                <span>19</span>
+                            </div>
+
+
+                            <div className="IconCount">
+                                <FaRegShareFromSquare />
+                            </div>
                         </div>
                     </div>
                 )
@@ -67,19 +84,14 @@ const Card = styled.article`
         display: flex;
         align-items: center;
         margin: 0 auto;
-        .ImgThread{
-            padding-right: 20px;
-            img{
-                width: 56px;
-                height: 56px;
-            }
-        }
+
 
         h2{
             color: ${(props) => props.theme.text}
         }
 
         .ImgThread{
+            padding-right: 20px;
             svg{
                 color: ${(props) => props.theme.text};
                 height: 60px;
@@ -103,6 +115,26 @@ const Card = styled.article`
             display: flex;
             align-items: center;
             gap: 12px;
+        }
+
+        .ThreadInfoIcons{
+            color: ${(props) => props.theme.text};
+
+            margin-top: 8px;
+            display: flex;
+            gap: 30px;
+
+            .IconCount{
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-weight: bold;
+
+            }
+            svg{
+                height: 50px;
+                width: 28px;
+            }
         }
         
     }
