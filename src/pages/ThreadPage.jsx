@@ -2,14 +2,13 @@ import styled from "styled-components"
 import { ThreadCard } from "../components/threads/ThreadCard";
 import { NavLink } from "react-router-dom";
 
-export function ThreadPage(){
+import { categories, threads } from "../components/utils/data_static"
+export function  ThreadPage({tipo}){
     return (
         <List>
-            {flag_threads.map(({to, label}) => (
-                <NavLink to={to} key={label}>
-                    <ThreadCard/>
-                </NavLink>
-            ))}
+            {threads.map(({categoryId, avatar_img, id, title, authorId, createdAt, content, tags}) => 
+                categoryId === tipo ? <ThreadCard key={id} title={title} authorId={authorId} createdAt={createdAt} content={content} tags={tags} avatar_img={avatar_img}/> : null
+            )}
         </List>
 
     );
@@ -60,8 +59,4 @@ const List = styled.div`
     margin: 24px auto;
     padding: 0 12px;
     display: grid;
-
-    a{
-        text-decoration: none;
-    }
 `;

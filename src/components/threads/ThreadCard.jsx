@@ -8,37 +8,42 @@ import { FaRegClock, FaRegShareFromSquare  } from "react-icons/fa6";
 import {Texto} from "../comun/Texto";
 
 import { hora } from "../utils/time"
+import { NavLink } from "react-router-dom";
 
-export function ThreadCard({content = true}){
+export function ThreadCard({ to, id, avatar_img, title, authorId, createdAt, content, tags, flag = true}){
     return (
-        <Card $conten={content}>
-            <div className="ThreadHeadContent">
-                <div className="ImgThread">
-                    <MdOutlineMessage/>
+        <Card $conten={flag}>
+            <NavLink to={to} key={id}>
+                <div className="ThreadHeadContent">
+                    <div className="ImgThread">
+                        {/* <MdOutlineMessage/> */}
+
+                        <img src={avatar_img} alt="user" />
+                    </div>
+
+                    <h2>{title}</h2>
                 </div>
 
-                <h2>Esto sera un tema de conversacion del foro.</h2>
-            </div>
-
-            <div className="ThreadInfoContent">
-                <Badge text="Sarah Chen" variant="label"/>
-                <Badge text="•" variant="label"/>
-                <FaRegClock/>
-                <Badge text={hora()} variant="label"/>
-                <Badge text="•" variant="label"/>
-                <Badge text="Development"></Badge>
-            </div>
+                <div className="ThreadInfoContent">
+                    <Badge text={authorId} variant="label"/>
+                    <Badge text="•" variant="label"/>
+                    <FaRegClock/>
+                    <Badge text={hora()} variant="label"/>
+                    <Badge text="•" variant="label"/>
+                    <Badge text="Development"></Badge>
+                </div>
+            </NavLink>
 
             {
-                content && (
+                flag && (
                     <div className="ThreadBodyContent">
-                        <Texto hasAnIcon={false}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores cumque voluptatem enim commodi suscipit placeat? 
-                            Consectetur ut tempora dolores dolor.</Texto>
+                        <Texto hasAnIcon={false}>{content}</Texto>
                         <div className="ThreadBadges">
-                            <Badge text="# oziel"/>
-                            <Badge text="# frederick"/>
-                            <Badge text="# freddy"/>
-                            <Badge text="# chalco"/>
+                            {
+                                tags.map((flag, index) => (
+                                    <Badge text={`# ${flag}`}/>
+                                ))
+                            }
                         </div>
 
                         <div className="ThreadInfoIcons">
@@ -74,6 +79,9 @@ const Card = styled.article`
     margin: 16px auto;              /* centrado horizontal */
     padding: 30px 18px;
 
+    a{
+        text-decoration: none;
+    }
     .ThreadHeadContent{
         display: flex;
         align-items: center;
@@ -90,6 +98,11 @@ const Card = styled.article`
                 color: ${(props) => props.theme.text};
                 height: 60px;
                 width: 60px;
+            }
+
+            img{
+                height: 80px;
+                width: 80px;
             }
         }
     }

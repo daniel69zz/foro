@@ -5,7 +5,7 @@ export function ThreadContentPage(){
     return (
         <main>
             <div className="ThreadHeader">
-                <ThreadCard content={false}/>
+                <ThreadCard flag={false}/>
             </div>
             
             <ThreadContent></ThreadContent>
