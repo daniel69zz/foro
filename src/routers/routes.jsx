@@ -15,7 +15,7 @@ export function MyRoutes(){
             
         
             <Route path='/login' element={<Login/>}/>
-            <Route path='/thread1' element={<ThreadContentPage/>}/>
+            <Route path='/threads' element={<ThreadContentPage/>}/>
         </Routes>
     );
 }

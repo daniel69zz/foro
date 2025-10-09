@@ -1,3 +1,33 @@
+import { FaLaptopCode } from "react-icons/fa";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { FiCoffee, FiBookOpen  } from "react-icons/fi";
+import { IoMdTrendingUp } from "react-icons/io";
+import {MdLogout} from "react-icons/md";
+
+import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
+
+export const categories = [
+  { to: '/', id: "c1", slug: "popular", label: "Popular", icon: IoMdTrendingUp, description: "Los temas con más interacción y relevancia." },
+  { to: '/development', id: "c2", slug: "programacion-y-mas", label: "Programación y más", icon: FaLaptopCode, description: "Frontend, backend, bases de datos, y temas tech." },
+  { to: '/gaming', id: "c3", slug: "gaming", label: "Gaming", icon: IoGameControllerOutline, description: "Juegos, consolas, experiencias multijugador." },
+  { to: '/general', id: "c4", slug: "general", label: "General", icon: FiCoffee, description: "Vida diaria, universidad, comunidad." },
+  { to: '/learning', id: "c5", slug: "aprender", label: "Aprender", icon: FiBookOpen, description: "Compartir recursos, cursos, experiencias de estudio." },
+];
+
+export const secondarylinksArray = [
+    {
+        label:"Configuración",
+        icon: AiOutlineSetting,
+        to: "/configuracion"
+    },
+    {
+        label:"Salir",
+        icon: MdLogout,
+        to: "/estadisticas" // no existe
+    }
+   
+]
+
 export const users = [
   { id: "u1", username: "oziel", name: "Oziel R.", avatarUrl: "avatars/oziel.svg", role: "admin" },
   { id: "u2", username: "andrea", name: "Andrea M.", avatarUrl: "avatars/andrea.svg", role: "moderator" },
@@ -8,15 +38,6 @@ export const users = [
   { id: "u7", username: "sofia", name: "Sofía C.", avatarUrl: "avatars/sofia.svg", role: "member" },
   { id: "u8", username: "mario", name: "Mario T.", avatarUrl: "avatars/mario.svg", role: "member" },
 ];
-
-export const categories = [
-  { to: '/', id: "c1", slug: "popular", name: "Popular", description: "Los temas con más interacción y relevancia." },
-  { to: '/development', id: "c2", slug: "programacion-y-mas", name: "Programación y más", description: "Frontend, backend, bases de datos, y temas tech." },
-  { to: '/gaming', id: "c3", slug: "gaming", name: "Gaming", description: "Juegos, consolas, experiencias multijugador." },
-  { to: '/general', id: "c4", slug: "general", name: "General", description: "Vida diaria, universidad, comunidad." },
-  { to: '/learning', id: "c5", slug: "aprender", name: "Aprender", description: "Compartir recursos, cursos, experiencias de estudio." },
-];
-
 
 // helpers de fecha
 const now = new Date();

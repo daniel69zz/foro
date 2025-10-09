@@ -10,62 +10,65 @@ import {Texto} from "../comun/Texto";
 import { hora } from "../utils/time"
 import { NavLink } from "react-router-dom";
 
-export function ThreadCard({ to, id, avatar_img, title, authorId, createdAt, content, tags, flag = true}){
+export function ThreadCard({ to, id, imgCard, title, authorId, createdAt, content, tags, post=true, ...props}){
+    const Icon = imgCard;
     return (
-        <Card $conten={flag}>
+        <Card $conten={post}>
             <NavLink to={to} key={id}>
                 <div className="ThreadHeadContent">
                     <div className="ImgThread">
-                        {/* <MdOutlineMessage/> */}
-
-                        <img src={avatar_img} alt="user" />
+                        {
+                            post ? <img src={imgCard} alt="user" /> : Icon ? <Icon/> : null 
+                        }
                     </div>
 
                     <h2>{title}</h2>
                 </div>
-
-                <div className="ThreadInfoContent">
-                    <Badge text={authorId} variant="label"/>
-                    <Badge text="•" variant="label"/>
-                    <FaRegClock/>
-                    <Badge text={hora()} variant="label"/>
-                    <Badge text="•" variant="label"/>
-                    <Badge text="Development"></Badge>
-                </div>
             </NavLink>
 
             {
-                flag && (
-                    <div className="ThreadBodyContent">
-                        <Texto hasAnIcon={false}>{content}</Texto>
-                        <div className="ThreadBadges">
-                            {
-                                tags.map((flag, index) => (
-                                    <Badge text={`# ${flag}`}/>
-                                ))
-                            }
+                post ? (
+                    <>
+                        <div className="ThreadInfoContent">
+                            <Badge text={authorId} variant="label"/>
+                            <Badge text="•" variant="label"/>
+                            <FaRegClock/>
+                            <Badge text={hora()} variant="label"/>
+                            <Badge text="•" variant="label"/>
+                            <Badge text="Development"></Badge>
                         </div>
 
-                        <div className="ThreadInfoIcons">
-                            <div className="IconCount">
-                                <MdOutlineMessage />
-                                <span>32</span>
-                            </div>
-                            
-                            <div className="IconCount">
-                                <FaRegHeart />
-                                <span>19</span>
+                        <div className="ThreadBodyContent">
+                            <Texto hasAnIcon={false}>{content}</Texto>
+                            <div className="ThreadBadges">
+                                {
+                                    tags.map((flag, index) => (
+                                        <Badge text={`# ${flag}`}/>
+                                    ))
+                                }
                             </div>
 
+                            <div className="ThreadInfoIcons">
+                                <div className="IconCount">
+                                    <MdOutlineMessage />
+                                    <span>32</span>
+                                </div>
+                                
+                                <div className="IconCount">
+                                    <FaRegHeart />
+                                    <span>19</span>
+                                </div>
 
-                            <div className="IconCount">
-                                <FaRegShareFromSquare />
+
+                                <div className="IconCount">
+                                    <FaRegShareFromSquare />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                )
+                        </>
+                    ): <Texto hasAnIcon={false}>{content}</Texto>
+
             }
-            
 
 
         </Card>
