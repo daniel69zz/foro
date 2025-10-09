@@ -10,15 +10,31 @@ import {Texto} from "../comun/Texto";
 import { hora } from "../utils/time"
 import { NavLink } from "react-router-dom";
 
-export function ThreadCard({ to, id, imgCard, title, authorId, createdAt, content, tags, post=true, ...props}){
+function valid_icon(img){
+    // if (typeof imgCard === "string") {
+    //     return false;
+    // } else if (typeof imgCard === "function") {
+    //     return true;
+    // }
+
+    if (typeof img === "function"){
+        return true;
+    }
+
+    return false;
+}
+
+export function ThreadCard({ id, imgCard, title, authorId, createdAt, content, tags, thread = true, post=true, ...props}){
     const Icon = imgCard;
+    
+
     return (
-        <Card $conten={post}>
-            <NavLink to={to} key={id}>
+        <Card $conten={thread}>
+            <NavLink to={`/threads/${id}`} key={id}>
                 <div className="ThreadHeadContent">
                     <div className="ImgThread">
                         {
-                            post ? <img src={imgCard} alt="user" /> : Icon ? <Icon/> : null 
+                            post ? <img src={imgCard} alt="user" /> : valid_icon(Icon) ? <Icon/> : null 
                         }
                     </div>
 
@@ -42,7 +58,7 @@ export function ThreadCard({ to, id, imgCard, title, authorId, createdAt, conten
                             <Texto hasAnIcon={false}>{content}</Texto>
                             <div className="ThreadBadges">
                                 {
-                                    tags.map((flag, index) => (
+                                    tags.map((flag) => (
                                         <Badge text={`# ${flag}`}/>
                                     ))
                                 }

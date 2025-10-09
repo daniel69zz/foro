@@ -6,6 +6,8 @@ import {v} from "../../styles/Variables";
 import { Badge } from "../comun/Badge";
 import { Texto } from "../comun/Texto"
 
+import { avatar_user, name_user } from "../utils/data_static";
+
 function fecha(){
     const mes = new Date().getMonth();
     const dias = new Date().getDate();
@@ -56,14 +58,14 @@ function fecha(){
         }
     }
 
-export function ThreadContent(){
+export function ThreadContent({ content, createdAt, authorId }){
 
     return (
         <Container>
             <div className="ThereadBody">
                 <div className="ThreadUserInfo">
-                    <Avatar size="xxl" shape="circle" ring user="oziel">
-                        <AvatarImage src="ozi.png" alt="Sarah Chen"/>
+                    <Avatar size="xxl" shape="circle" ring user={name_user(authorId)}>
+                        <AvatarImage src={`/${avatar_user(authorId)}`} alt="Sarah Chen"/>
                         <AvatarFallback>Not Found</AvatarFallback>
                     </Avatar>
                 </div>
@@ -72,17 +74,11 @@ export function ThreadContent(){
 
                 <div className="ThreadContent">
                     <div className="ThreadContentHeader">
-                        <Badge text={fecha()} variant="label" pad={false}/>
+                        <Badge text={`${fecha()}`} variant="label" pad={false}/>
                     </div>
                     <Texto hasAnIcon={false}>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum, quia. Minus ipsa ratione amet, esse hic corporis soluta rerum vel doloribus quia suscipit, omnis ea quo? A asperiores praesentium repudiandae, accusantium iure earum nulla consectetur, neque molestiae vitae eum reprehenderit?
+                        {content}
                     </Texto>
-
-                    <Texto hasAnIcon={false}>
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto optio expedita repudiandae vitae a incidunt unde iste reprehenderit porro voluptate.
-                    </Texto>
-
-                    <Texto hasAnIcon={false}>VIVA EL PSOOOOOOOOOOOOOOOO!!</Texto>
                 </div>
             </div>
         </Container>

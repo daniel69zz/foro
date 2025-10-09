@@ -1,22 +1,32 @@
 import styled from "styled-components"
 import { ThreadCard } from "../components/threads/ThreadCard";
-import { NavLink } from "react-router-dom";
 
 import { categories, threads } from "../components/utils/data_static"
+import { categ_tipo, thread_tipo } from "../components/utils/data_static";
 
 export function ThreadPage({tipo}){
+    const categoria = categ_tipo(tipo);
+    const hilos = thread_tipo(tipo);
+
     return (
         
         <List>
-            {categories.map(({id, label, description, icon}) => 
-                id === tipo ? <ThreadCard post={false} title={label} content={description} imgCard={icon}/> : null
-            )}
+            <ThreadCard post={false} imgCard={categoria.icon} {...categoria}/> 
 
-            {threads.map(({categoryId, avatar_img, id, title, authorId, createdAt, content, tags}) => 
+
+            {/* {threads.map(({categoryId, imgCard, id, title, authorId, createdAt, content, tags}) => 
                 categoryId === tipo ? 
-                <ThreadCard to="/threads" key={id} title={title} authorId={authorId} createdAt={createdAt} 
-                                content={content} tags={tags} imgCard={avatar_img}/> : null
-            )}
+                <ThreadCard to={`/threads/${id}`} key={id} title={title} authorId={authorId} createdAt={createdAt} 
+                                content={content} tags={tags} imgCard={imgCard}/> : null
+            )} */}
+
+            {
+                hilos.map((f) => (
+                    <ThreadCard {...f}/>
+                ))
+            }
+
+            {/* <ThreadCard {...hilos}/> */}
         </List>
 
     );

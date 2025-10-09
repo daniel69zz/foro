@@ -7,11 +7,11 @@ import {MdLogout} from "react-icons/md";
 import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
 
 export const categories = [
-  { to: '/', id: "c1", slug: "popular", label: "Popular", icon: IoMdTrendingUp, description: "Los temas con más interacción y relevancia." },
-  { to: '/development', id: "c2", slug: "programacion-y-mas", label: "Programación y más", icon: FaLaptopCode, description: "Frontend, backend, bases de datos, y temas tech." },
-  { to: '/gaming', id: "c3", slug: "gaming", label: "Gaming", icon: IoGameControllerOutline, description: "Juegos, consolas, experiencias multijugador." },
-  { to: '/general', id: "c4", slug: "general", label: "General", icon: FiCoffee, description: "Vida diaria, universidad, comunidad." },
-  { to: '/learning', id: "c5", slug: "aprender", label: "Aprender", icon: FiBookOpen, description: "Compartir recursos, cursos, experiencias de estudio." },
+  { to: '/', id: "c1", slug: "popular", title: "Popular", icon: IoMdTrendingUp, content: "Los temas con más interacción y relevancia." },
+  { to: '/development', id: "c2", slug: "programacion-y-mas", title: "Programación y más", icon: FaLaptopCode, content: "Frontend, backend, bases de datos, y temas tech." },
+  { to: '/gaming', id: "c3", slug: "gaming", title: "Gaming", icon: IoGameControllerOutline, content: "Juegos, consolas, experiencias multijugador." },
+  { to: '/general', id: "c4", slug: "general", title: "General", icon: FiCoffee, content: "Vida diaria, universidad, comunidad." },
+  { to: '/learning', id: "c5", slug: "aprender", title: "Aprender", icon: FiBookOpen, content: "Compartir recursos, cursos, experiencias de estudio." },
 ];
 
 export const secondarylinksArray = [
@@ -39,28 +39,54 @@ export const users = [
   { id: "u8", username: "mario", name: "Mario T.", avatarUrl: "avatars/mario.svg", role: "member" },
 ];
 
-// helpers de fecha
 const now = new Date();
-function daysAgo(n){ const d = new Date(now); d.setDate(d.getDate()-n); return d.toISOString(); }
-
-function name_user(author){
-    const user = users.find(flag => flag.id === author);
-
-    return user.name;
+function daysAgo(n){ 
+  const d = new Date(now); 
+  d.setDate(d.getDate()-n); 
+  return d.toISOString(); 
 }
 
-function avatar_user(author){
+export function categ_tipo(tipo){
+  const categ = categories.find(flag => flag.id === tipo);
+
+  return categ ? categ : null;  
+}
+
+export function thread_id (id){
+  const thread = threads.find(flag => flag.id === id);
+
+  return thread ? thread : null;
+}
+
+export function thread_tipo (tipo){
+  const hilos = threads.filter(flag => flag.categoryId === tipo);
+
+  return hilos ? hilos : null;
+}
+
+export function name_user(author){
+  const user = users.find(flag => flag.id === author);
+
+  return user.name;
+}
+
+export function avatar_user(author){
     const user = users.find(flag => flag.id === author);
 
     return user.avatarUrl;
 }
 
-// 25 hilos (5 por categoría) usando: c1=Popular, c2=Programación y más, c3=Gaming, c4=General, c5=Aprender
+export function comments_post(id){
+    const comms = threads.find((flag) => flag.id === id);
+    return comms ? comms.comments : null; 
+}
+
+
 export const threads = [
   {
     id: "t1",
     categoryId: "c1",
-    avatar_img: avatar_user("u6"),
+    imgCard: avatar_user("u6"),
     title: "Experiencias con becas UCB y cómo mantenerlas",
     slug: "becas-ucb-experiencias",
     authorId: name_user("u6"),
@@ -70,14 +96,14 @@ export const threads = [
     views: 812, upvotes: 54, repliesCount: 9,
     content: "Consejos para mantener beca: plan de estudio, tutorías, seguimiento de notas, comunicación con docentes.",
     comments: [
-      { id: "t1c1", authorId: "u2", createdAt: daysAgo(12), upvotes: 8, content: "Arma un calendario visible y repasa notas cada semana.", children: [] },
-      { id: "t1c2", authorId: "u7", createdAt: daysAgo(9), upvotes: 3, content: "No dejes materias 'relleno', pesan en el promedio.", children: [] }
+      { id: "t1c1", authorId: "u2", createdAt: daysAgo(12), upvotes: 8, content: "Arma un calendario visible y repasa notas cada semana."},
+      { id: "t1c2", authorId: "u7", createdAt: daysAgo(9), upvotes: 3, content: "No dejes materias 'relleno', pesan en el promedio."}
     ]
   },
   {
     id: "t2",
     categoryId: "c1",
-    avatar_img: avatar_user("u6"),
+    imgCard: avatar_user("u6"),
     title: "Trigger de stock en PostgreSQL para taller automotriz",
     slug: "trigger-stock-postgresql-popular",
     authorId: name_user("u6"),
@@ -93,7 +119,7 @@ export const threads = [
   {
     id: "t3",
     categoryId: "c1",
-    avatar_img: avatar_user("u1"),
+    imgCard: avatar_user("u1"),
     title: "Mejores prácticas para repos separados: React + Node",
     slug: "mejores-practicas-react-node-repos",
     authorId: name_user("u1"),
@@ -109,7 +135,7 @@ export const threads = [
   {
     id: "t4",
     categoryId: "c1",
-    avatar_img: avatar_user("u4"),
+    imgCard: avatar_user("u4"),
     title: "Newsvendor para donuts: cuantil óptimo rápido",
     slug: "newsvendor-donuts-popular",
     authorId: name_user("u4"),
@@ -125,7 +151,7 @@ export const threads = [
   {
     id: "t5",
     categoryId: "c1",
-    avatar_img: avatar_user("u1"),
+    imgCard: avatar_user("u1"),
     title: "Showcase: LoginCard responsive (sombras y paddings)",
     slug: "showcase-logincard-responsive",
     authorId: name_user("u1"),
@@ -143,7 +169,7 @@ export const threads = [
   {
     id: "t6",
     categoryId: "c2",
-    avatar_img: avatar_user("u5"),
+    imgCard: avatar_user("u5"),
     title: "¿Monorepo o repos separados para microservicios?",
     slug: "monorepo-o-repos-separados",
     authorId: name_user("u5"),
@@ -159,7 +185,7 @@ export const threads = [
   {
     id: "t7",
     categoryId: "c2",
-    avatar_img: avatar_user("u7"),
+    imgCard: avatar_user("u7"),
     title: "Styled-components + CSS Modules: ¿mezclar o separar?",
     slug: "styled-components-cssmodules",
     authorId: name_user("u7"),
@@ -175,7 +201,7 @@ export const threads = [
   {
     id: "t8",
     categoryId: "c2",
-    avatar_img: avatar_user("u5"),
+    imgCard: avatar_user("u5"),
     title: "Índices compuestos vs parciales en PostgreSQL",
     slug: "indices-compuestos-vs-parciales",
     authorId: name_user("u5"),
@@ -191,7 +217,7 @@ export const threads = [
   {
     id: "t9",
     categoryId: "c2",
-    avatar_img: avatar_user("u1"),
+    imgCard: avatar_user("u1"),
     title: "Node/Express: estructura mínima limpia para APIs",
     slug: "node-express-estructura-minima",
     authorId: name_user("u1"),
@@ -207,7 +233,7 @@ export const threads = [
   {
     id: "t10",
     categoryId: "c2",
-    avatar_img: avatar_user("u3"),
+    imgCard: avatar_user("u3"),
     title: "CORS y .env correctamente configurados en dev/prod",
     slug: "cors-y-env-dev-prod",
     authorId: name_user("u3"),
@@ -225,7 +251,7 @@ export const threads = [
   {
     id: "t11",
     categoryId: "c3",
-    avatar_img: avatar_user("u8"),
+    imgCard: avatar_user("u8"),
     title: "Setup híbrido: estudiar y jugar sin distraerte",
     slug: "setup-hibrido-estudio-gaming",
     authorId: name_user("u8"),
@@ -241,7 +267,7 @@ export const threads = [
   {
     id: "t12",
     categoryId: "c3",
-    avatar_img: avatar_user("u4"),
+    imgCard: avatar_user("u4"),
     title: "Baldur’s Gate 3 vs Elden Ring: ¿cuál recomiendas?",
     slug: "bg3-vs-eldenring",
     authorId: name_user("u4"),
@@ -257,7 +283,7 @@ export const threads = [
   {
     id: "t13",
     categoryId: "c3",
-    avatar_img: avatar_user("u7"),
+    imgCard: avatar_user("u7"),
     title: "¿Gamepads o teclado+mouse para shooters?",
     slug: "gamepad-o-teclado-mouse-shooters",
     authorId: name_user("u7"),
@@ -273,7 +299,7 @@ export const threads = [
   {
     id: "t14",
     categoryId: "c3",
-    avatar_img: avatar_user("u2"),
+    imgCard: avatar_user("u2"),
     title: "Optimizar OBS para streaming sin perder FPS",
     slug: "optimizar-obs-streaming",
     authorId: name_user("u2"),
@@ -289,7 +315,7 @@ export const threads = [
   {
     id: "t15",
     categoryId: "c3",
-    avatar_img: avatar_user("u3"),
+    imgCard: avatar_user("u3"),
     title: "Top juegos cooperativos locales para PC",
     slug: "top-coop-local-pc",
     authorId: name_user("u3"),
@@ -307,7 +333,7 @@ export const threads = [
   {
     id: "t16",
     categoryId: "c4",
-    avatar_img: avatar_user("u8"),
+    imgCard: avatar_user("u8"),
     title: "Café de viernes: comparte tu setup de productividad",
     slug: "cafe-viernes-setup",
     authorId: name_user("u8"),
@@ -323,7 +349,7 @@ export const threads = [
   {
     id: "t17",
     categoryId: "c4",
-    avatar_img: avatar_user("u3"),
+    imgCard: avatar_user("u3"),
     title: "¿Cómo les fue en los parciales de IO2?",
     slug: "parciales-io2-experiencias",
     authorId: name_user("u3"),
@@ -339,7 +365,7 @@ export const threads = [
   {
     id: "t18",
     categoryId: "c4",
-    avatar_img: avatar_user("u2"),
+    imgCard: avatar_user("u2"),
     title: "Apps de hábitos que realmente te funcionaron",
     slug: "apps-de-habitos-recomendaciones",
     authorId: name_user("u2"),
@@ -355,7 +381,7 @@ export const threads = [
   {
     id: "t19",
     categoryId: "c4",
-    avatar_img: avatar_user("u6"),
+    imgCard: avatar_user("u6"),
     title: "¿Cómo organizan su semana de entregas?",
     slug: "organizar-semana-entregas",
     authorId: name_user("u6"),
@@ -371,7 +397,7 @@ export const threads = [
   {
     id: "t20",
     categoryId: "c4",
-    avatar_img: avatar_user("u7"),
+    imgCard: avatar_user("u7"),
     title: "Recomendaciones de cafeterías cerca de la U",
     slug: "cafeterias-cerca-de-la-u",
     authorId: name_user("u7"),
@@ -389,7 +415,7 @@ export const threads = [
   {
     id: "t21",
     categoryId: "c5",
-    avatar_img: avatar_user("u3"),
+    imgCard: avatar_user("u3"),
     title: "EOQ con faltantes: guía para PPT en 1 slide",
     slug: "eoq-con-faltantes-ppt",
     authorId: name_user("u3"),
@@ -405,7 +431,7 @@ export const threads = [
   {
     id: "t22",
     categoryId: "c5",
-    avatar_img: avatar_user("u7"),
+    imgCard: avatar_user("u7"),
     title: "Guía rápida de NoSQL: cuándo sí, cuándo no",
     slug: "guia-rapida-nosql",
     authorId: name_user("u7"),
@@ -421,7 +447,7 @@ export const threads = [
   {
     id: "t23",
     categoryId: "c5",
-    avatar_img: avatar_user("u4"),
+    imgCard: avatar_user("u4"),
     title: "Newsvendor paso a paso con Normal(μ, σ)",
     slug: "newsvendor-normal-paso-a-paso",
     authorId: name_user("u4"),
@@ -437,7 +463,7 @@ export const threads = [
   {
     id: "t24",
     categoryId: "c5",
-    avatar_img: avatar_user("u5"),
+    imgCard: avatar_user("u5"),
     title: "SQL intermedio: subconsultas y CTEs con ejemplos",
     slug: "sql-intermedio-subconsultas-ctes",
     authorId: name_user("u5"),
@@ -453,7 +479,7 @@ export const threads = [
   {
     id: "t25",
     categoryId: "c5",
-    avatar_img: avatar_user("u2"),
+    imgCard: avatar_user("u2"),
     title: "Git para la U: flujo simple con PRs",
     slug: "git-flujo-simple-prs",
     authorId: name_user("u2"),
