@@ -31,12 +31,18 @@ function App() {
             <Container className={sidebarOpen ? "active" : ""}>
               <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
               <Main>
-                <Navbar onLoginClick={() => setShowLogin(true)} />
+                <Navbar className="navbar" onLoginClick={() => setShowLogin(true)} />
                 <Content>
                   <MyRoutes/>
                 </Content>
+
               </Main>
             </Container>
+             {showLogin && (
+          <Modal onClose={() => setShowLogin(false)}>
+            <LoginPage />
+          </Modal>
+        )}
           </BrowserRouter>
         </ThemeProvider>
         
