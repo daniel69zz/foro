@@ -11,6 +11,7 @@ export const Light ={
     bgtgderecha:"#fff"
 }
 export const Dark = {
+    
     cardcolor: "#1a1f2e",
     labelcolor: "#717182",
     text: "#fff",
