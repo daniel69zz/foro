@@ -18,7 +18,6 @@ export default function ModalLogin({ children, onClose }) {
     >
       <div
         style={{
-    
           borderRadius: "1rem",
           padding: "2rem",
           position: "relative",

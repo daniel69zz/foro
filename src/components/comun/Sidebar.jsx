@@ -1,22 +1,22 @@
 import styled from "styled-components";
 import logo from "../../assets/fondo_v3.png";
-import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
-import { FaLaptopCode } from "react-icons/fa";
-import { IoGameControllerOutline } from "react-icons/io5";
-import { FiCoffee, FiBookOpen  } from "react-icons/fi";
-import { IoMdTrendingUp } from "react-icons/io";
+import {AiOutlineLeft} from "react-icons/ai";
 
 
-import {MdLogout} from "react-icons/md";
 import {v} from "../../styles/Variables";
 import {NavLink} from "react-router-dom";
 import { useContext } from "react";
 import { ThemeContext } from "../../App";
+import { links_sidebar, links_sidebar_second } from "../utils/data_static";
+
 
 export function Sidebar({ sidebarOpen, setSidebarOpen}){
     const ModSidebaropen = () => {
         setSidebarOpen(!sidebarOpen);
     }
+
+    const links_1 = links_sidebar();
+    const links_2 = links_sidebar_second();
     
     const {setTheme, theme} = useContext(ThemeContext);
 
@@ -33,14 +33,14 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
                 <div className="imgContent">
                     <img src={logo} alt="nose"/>
                 </div>
-                <h2>UCB COMUNITY</h2>
+                <h2>UCB COMMUNITY</h2>
             </div>
 
-            {linksArray.map(({icon, label, to}) => (
+            {links_1.map(({Icon, label, to}) => (
                 <div className="LinkContainer" key={label}>
                     <NavLink to={to} className={({isActive}) => `Links${isActive ? ` active`:``}`}>
                         <div className="Linkicon">
-                            {icon}
+                            <Icon/>
                         </div>
                         {
                             sidebarOpen && (
@@ -51,11 +51,11 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
                 </div>
             ))}
             <Divider/>
-            {secondarylinksArray.map(({icon, label, to}) => (
+            {links_2.map(({Icon, label, to}) => (
                 <div className="LinkContainer" key={label}>
                     <NavLink to={to} className={({isActive}) => `Links${isActive ? ` active`:``}`}>
                         <div className="Linkicon">
-                            {icon}
+                            <Icon/>
                         </div>
                         {
                             sidebarOpen && (
@@ -86,50 +86,6 @@ export function Sidebar({ sidebarOpen, setSidebarOpen}){
         </Container>
     );
 }
-
-//#region DATA LINKS
-const linksArray = [
-    {
-        label:"Popular",
-        icon:<IoMdTrendingUp/>,
-        to: "/"
-    },
-    {
-        label:"Programacion y más",
-        icon:<FaLaptopCode/>,
-        to: "/development" 
-    },
-    {
-        label:"Gaming",
-        icon:<IoGameControllerOutline/>,
-        to: "/gaming" 
-    },
-    {
-        label: "General",
-        icon: <FiCoffee/>,
-        to: "/general"
-    },
-    {
-        label: "Aprender",
-        icon: <FiBookOpen/>,
-        to: "/learning"
-    }
-]
-
-const secondarylinksArray = [
-    {
-        label:"Configuración",
-        icon:<AiOutlineSetting/>,
-        to: "/configuracion"
-    },
-    {
-        label:"Salir",
-        icon:<MdLogout/>,
-        to: "/estadisticas" // no existe
-    }
-   
-]
-//#endregion
 
 //#region STYLED COMPONENTS
 const Container = styled.div`

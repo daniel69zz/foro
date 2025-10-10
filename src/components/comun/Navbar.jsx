@@ -1,21 +1,27 @@
 import styled from "styled-components";
 import Button from "./Button";
-import { AiOutlineHome} from "react-icons/ai";
-import { LuContactRound } from "react-icons/lu";
-import { ImFire } from "react-icons/im";
 import {NavLink} from "react-router-dom";
 import {v} from "../../styles/Variables";
+import logo from "../../assets/fondo_v3.png";
 
+import { links_nav } from "../utils/data_static";
 
 export function Navbar() {
+    const links_ = links_nav();
     return (
         <Container>
+            <div className="LogoContent">
+                <div className="imgContent">
+                    <img src={logo} alt="nose"/>
+                </div>
+                <h2>UCB COMMUNITY</h2>
+            </div>
             {
-                LinksNav.map(({label, icon, to}) => (
+                links_.map(({label, Icon, to}) => (
                     <div className="NavbarItems" key={label}>
                         <NavLink to={to} className={({isActive}) => `Links${isActive ? ` active`:``}`}>
                             <div className="Linkicon">
-                                {icon}
+                                <Icon/>
                             </div>
 
                             <span>{label}</span>
@@ -32,19 +38,6 @@ export function Navbar() {
     );
 }
 
-const LinksNav = [
-    {
-        label: "Home",
-        icon: <AiOutlineHome/>,
-        to: "/"
-    },
-
-    {
-        label: "Popular",
-        icon: <ImFire/>,
-        to: "/popular"
-    }
-]
 const Container = styled.div`
     position: sticky;
     top: 0;
@@ -92,13 +85,26 @@ const Container = styled.div`
        
     }
 
+    .LogoContent{
+        display:none;
+    }
+
     @media (max-width: 768px) {
         .NavbarItems {
             display: none;
         }
+
+        .LogoContent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-bottom: ${v.lgSpacing};
+            padding-top: 20px;
+            gap: 10px;
+        }
         
         .Buttons{
-            margin-left: 200px;
+            margin-left: 100px;
         }
         
     }

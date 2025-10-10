@@ -12,14 +12,6 @@ export function ThreadPage({tipo}){
         
         <List>
             <ThreadCard post={false} imgCard={categoria.icon} title={categoria.title} content={categoria.content} /> 
-
-
-            {/* {threads.map(({categoryId, imgCard, id, title, authorId, createdAt, content, tags}) => 
-                categoryId === tipo ? 
-                <ThreadCard to={`/threads/${id}`} key={id} title={title} authorId={authorId} createdAt={createdAt} 
-                                content={content} tags={tags} imgCard={imgCard}/> : null
-            )} */}
-
             {
                 hilos.map((f) => (
                     <ThreadCard key={f.id} {...f}/>

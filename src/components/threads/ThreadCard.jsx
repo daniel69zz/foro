@@ -55,8 +55,8 @@ export function ThreadCard({ id, imgCard, title, authorId, createdAt, content, t
                             <Texto hasAnIcon={false}>{content}</Texto>
                             <div className="ThreadBadges">
                                 {
-                                    tags.map((flag) => (
-                                        <Badge text={`# ${flag}`}/>
+                                    tags.map((flag, index) => (
+                                        <Badge text={`# ${flag}`} key={index}/>
                                     ))
                                 }
                             </div>

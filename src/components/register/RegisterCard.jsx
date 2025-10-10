@@ -9,15 +9,27 @@ import IconButton from "../comun/IconButton";
 export default function RegisterCard() {
   return (
     <ContentRegisterCard>
-      <IconButton className="botonCerrar" to="/"/>
+      <IconButton className="botonCerrar" to="/" />
       <Texto icono={User} className="texto1" iconClassName="icono1">
         Entra a UCB comunity !
       </Texto>
       <Texto hasAnIcon={false} className="texto2">
         Crea una nueva cuenta y entra a la comunidad
       </Texto>
-      <Input id="in_email" icon={User} placeholderText="Ingresa tu nombre" labelText="Nombre" className3="input1" />
-      <Input id="in_email" icon={Mail} placeholderText="Ingresa tu email" labelText="Email" className3="input1" />
+      <Input
+        id="in_email"
+        icon={User}
+        placeholderText="Ingresa tu nombre"
+        labelText="Nombre"
+        className3="input1"
+      />
+      <Input
+        id="in_email"
+        icon={Mail}
+        placeholderText="Ingresa tu email"
+        labelText="Email"
+        className3="input1"
+      />
       <Input
         icon={Lock}
         placeholderText="Ingresa tu contraseña"
@@ -38,10 +50,12 @@ export default function RegisterCard() {
         Crear Cuenta
       </Button>
       <Line />
-      <Texto className="texto3"hasAnIcon={false}>Ya tienes una cuenta?</Texto>
+      <Texto className="texto3" hasAnIcon={false}>
+        Ya tienes una cuenta?
+      </Texto>
       <Button className="boton2" data-variant="login" size="login" to="/login">
         Iniciar Sesion
-      </Button >
+      </Button>
     </ContentRegisterCard>
   );
 }
@@ -57,10 +71,11 @@ const ContentRegisterCard = styled.div`
   width: 100%;
   max-width: 400px;
   transition: all 0.3s ease;
-  .input1{
+  .input1 {
     background-color: ${({ theme }) => theme.loginCard.buttonBg2};
     border: 1px solid ${({ theme }) => theme.loginCard.border};
-  }.input1 svg{
+  }
+  .input1 svg {
     color: ${({ theme }) => theme.loginCard.textSecondary};
   }
 
@@ -68,7 +83,8 @@ const ContentRegisterCard = styled.div`
     font-size: 0.88rem;
     font-weight: 500;
     color: ${({ theme }) => theme.loginCard.textPrimary};
-  }.texto1 svg{
+  }
+  .texto1 svg {
     color: ${({ theme }) => theme.loginCard.si};
   }
 
@@ -103,14 +119,14 @@ const ContentRegisterCard = styled.div`
     &:hover {
       background-color: ${({ theme }) => theme.loginCard.buttonHover};
     }
-  }.boton2 {
+  }
+  .boton2 {
     background-color: ${({ theme }) => theme.loginCard.buttonBg2};
     border: 1px solid ${({ theme }) => theme.loginCard.border};
     color: ${({ theme }) => theme.loginCard.si};
     &:hover {
       background-color: ${({ theme }) => theme.loginCard.buttonHover};
       color: ${({ theme }) => theme.loginCard.inputText};
-
     }
   }
 `;

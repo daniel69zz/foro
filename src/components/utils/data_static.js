@@ -1,10 +1,13 @@
 import { FaLaptopCode } from "react-icons/fa";
+import { AiOutlineHome} from "react-icons/ai";
+import { LuContactRound } from "react-icons/lu";
+import { ImFire } from "react-icons/im";
+
+import {AiOutlineLeft, AiOutlineSetting} from "react-icons/ai";
 import { IoGameControllerOutline } from "react-icons/io5";
 import { FiCoffee, FiBookOpen  } from "react-icons/fi";
 import { IoMdTrendingUp } from "react-icons/io";
 import {MdLogout} from "react-icons/md";
-
-import {AiOutlineSetting} from "react-icons/ai";
 
 export const categories = [
   { to: '/', id: "c1", slug: "popular", title: "Popular", icon: IoMdTrendingUp, content: "Los temas con más interacción y relevancia." },
@@ -14,19 +17,69 @@ export const categories = [
   { to: '/learning', id: "c5", slug: "aprender", title: "Aprender", icon: FiBookOpen, content: "Compartir recursos, cursos, experiencias de estudio." },
 ];
 
+const LinksNav = [
+    {
+        label: "Home",
+        Icon: AiOutlineHome,
+        to: "/"
+    },
+
+    {
+        label: "Popular",
+        Icon: ImFire,
+        to: "/popular"
+    }
+]
+
+const linksArray = [
+    {
+        label:"Popular",
+        Icon: IoMdTrendingUp,
+        to: "/"
+    },
+    {
+        label:"Programacion y más",
+        Icon: FaLaptopCode,
+        to: "/development" 
+    },
+    {
+        label:"Gaming",
+        Icon: IoGameControllerOutline,
+        to: "/gaming" 
+    },
+    {
+        label: "General",
+        Icon: FiCoffee,
+        to: "/general"
+    },
+    {
+        label: "Aprender",
+        Icon: FiBookOpen,
+        to: "/learning"
+    }
+]
+
+export function links_sidebar(){
+  return linksArray;
+}
+
 export const secondarylinksArray = [
     {
         label:"Configuración",
-        icon: AiOutlineSetting,
+        Icon: AiOutlineSetting,
         to: "/configuracion"
     },
     {
         label:"Salir",
-        icon: MdLogout,
+        Icon: MdLogout,
         to: "/estadisticas" // no existe
     }
    
 ]
+
+export function links_sidebar_second(){
+  return secondarylinksArray;
+}
 
 export const users = [
   { id: "u1", username: "oziel", name: "Oziel R.", avatarUrl: "avatars/oziel.svg", role: "admin" },
@@ -39,6 +92,9 @@ export const users = [
   { id: "u8", username: "mario", name: "Mario T.", avatarUrl: "avatars/mario.svg", role: "member" },
 ];
 
+export function links_nav(){
+  return LinksNav;
+}
 
 export function categ_tipo(tipo){
   const categ = categories.find(flag => flag.id === tipo);
