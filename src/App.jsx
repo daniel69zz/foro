@@ -10,6 +10,11 @@ import { Light, Dark } from "./styles/Theme"
 import styled from "styled-components"
 import { ThemeProvider } from "styled-components"
 
+import Modal from "./components/comun/Modal";
+import LoginPage from "./pages/Login";
+
+// import {ModalLogin} from "./components/comun/Modal.login";
+
 export const ThemeContext = React.createContext(null);
 
 function App() {
@@ -17,7 +22,8 @@ function App() {
   const themeStyle = theme === "light" ? Light : Dark;
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <>
       <ThemeContext.Provider value={{setTheme, theme}}>
@@ -26,13 +32,18 @@ function App() {
             <Container className={sidebarOpen ? "active" : ""}>
               <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
               <Main>
-                <Navbar className="navbar"/>
+                <Navbar className="navbar" onLoginClick={() => setShowLogin(true)} />
                 <Content>
                   <MyRoutes/>
                 </Content>
-                <Footer />
+                <Footer/>
               </Main>
             </Container>
+             {showLogin && (
+          <Modal onClose={() => setShowLogin(false)}>
+            <LoginPage />
+          </Modal>
+        )}
           </BrowserRouter>
         </ThemeProvider>
         
