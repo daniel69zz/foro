@@ -4,7 +4,6 @@ import {Texto} from "../comun/Texto";
 import Button from "../comun/Button";
 import Line from "../comun/Line";
 import {User, Mail, Lock} from "lucide-react";
-import Link from "../comun/Link";
 import IconButton from "../comun/IconButton";
 
 
@@ -20,16 +19,10 @@ export default function LoginCard(){
             </Texto>
             <Input id="in_email" icon={Mail} placeholderText='Ingresa tu email' labelText="Email" />
             <Input id="in_hash" icon={Lock} placeholderText='Ingresa tu contraseña' labelText="Password" type="password" tipo="tipo1"/>
-            <Link href="https://google.com" external className={styles.link1}>La olvidaste?</Link>
-            <div className={styles.checkboxContainer}>
-                <Button className={styles.boton1} data-variant="login" size="login">
+            <Input id="in_hash" icon={Lock} placeholderText='Confirma tu contraseña' labelText="Confirmar Password" type="password" tipo="tipo1"/>
+            <Button className={styles.boton1} data-variant="login" size="login">
                 Iniciar Sesion
             </Button>
-                <Button className={styles.boton1} data-variant="login" size="login">
-                Registrarse
-            </Button>
-            </div>
-            
             <Line/>
             <Texto>Ingresa tu contraseña</Texto>
         </div>
