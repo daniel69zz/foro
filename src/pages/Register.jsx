@@ -1,4 +1,4 @@
-import RegisterCard from "../components/login/RegisterCard";
+import RegisterCard from "../components/register/RegisterCard";
 import styles from "./Register.module.css"
 
 export default function(){

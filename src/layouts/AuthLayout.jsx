@@ -1,19 +1,18 @@
-// src/layouts/AuthLayout.jsx
+// layouts/AuthLayout.jsx
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 export function AuthLayout() {
   return (
-    <AuthWrapper>
+    <Wrap>
       <Outlet />
-    </AuthWrapper>
+    </Wrap>
   );
 }
 
-const AuthWrapper = styled.div`
+const Wrap = styled.main`
   min-height: 100dvh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: ${({theme}) => theme.bgtotal};
+  display: grid;
+  place-items: center;
+  background: ${({ theme }) => theme.bgtotal};
 `;

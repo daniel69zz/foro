@@ -11,7 +11,7 @@ export function ThreadPage({tipo}){
     return (
         
         <List>
-            <ThreadCard post={false} imgCard={categoria.icon} {...categoria}/> 
+            <ThreadCard post={false} imgCard={categoria.icon} title={categoria.title} content={categoria.content} /> 
 
 
             {/* {threads.map(({categoryId, imgCard, id, title, authorId, createdAt, content, tags}) => 
@@ -22,11 +22,10 @@ export function ThreadPage({tipo}){
 
             {
                 hilos.map((f) => (
-                    <ThreadCard {...f}/>
+                    <ThreadCard key={f.id} {...f}/>
                 ))
             }
 
-            {/* <ThreadCard {...hilos}/> */}
         </List>
 
     );

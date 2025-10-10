@@ -9,7 +9,7 @@ import IconButton from "../comun/IconButton";
 
 export default function LoginCard() {
   return (
-    <ContentRegisterCard>
+    <ContentLoginCard>
       <IconButton className="botonCerrar" to="/"/>
       <Texto icono={User} className="texto1" iconClassName="icono1">
         Bienvenido de vuelta
@@ -38,11 +38,11 @@ export default function LoginCard() {
       <Button className="boton2" data-variant="login" size="login" to="/register">
         Crear Cuenta
       </Button >
-    </ContentRegisterCard>
+    </ContentLoginCard>
   );
 }
 
-const ContentRegisterCard = styled.div`
+const ContentLoginCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px 15px 15px 15px;

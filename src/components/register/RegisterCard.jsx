@@ -4,12 +4,11 @@ import { Texto } from "../comun/Texto";
 import Button from "../comun/Button";
 import Line from "../comun/Line";
 import { User, Mail, Lock } from "lucide-react";
-import Link from "../comun/Link";
 import IconButton from "../comun/IconButton";
 
 export default function RegisterCard() {
   return (
-    <ContentLoginCard>
+    <ContentRegisterCard>
       <IconButton className="botonCerrar" to="/"/>
       <Texto icono={User} className="texto1" iconClassName="icono1">
         Entra a UCB comunity !
@@ -41,13 +40,13 @@ export default function RegisterCard() {
       <Line />
       <Texto className="texto3"hasAnIcon={false}>Ya tienes una cuenta?</Texto>
       <Button className="boton2" data-variant="login" size="login" to="/login">
-        Iniciar Secion
+        Iniciar Sesion
       </Button >
-    </ContentLoginCard>
+    </ContentRegisterCard>
   );
 }
 
-const ContentLoginCard = styled.div`
+const ContentRegisterCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px 15px 15px 15px;

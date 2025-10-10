@@ -3,10 +3,12 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/comun/Navbar";
 import { Sidebar } from "../components/comun/Sidebar";
+import Footer from "../components/comun/Footer"
 import styled from "styled-components";
 
 export function MainLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  
 
   return (
     <Container className={sidebarOpen ? "active" : ""}>
@@ -16,6 +18,7 @@ export function MainLayout() {
         <Content>
           <Outlet />
         </Content>
+        <Footer />
       </Main>
     </Container>
   );
