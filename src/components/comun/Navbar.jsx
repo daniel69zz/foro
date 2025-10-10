@@ -24,7 +24,9 @@ export function Navbar() {
                 ))
             }
 
-           <Button size="lg" to="/login">Iniciar Sesion</Button>
+           <div className="Buttons">
+                <Button size="lg" to="/login">Iniciar Sesion</Button>
+           </div>
 
         </Container>
     );
@@ -88,5 +90,16 @@ const Container = styled.div`
             }
         }
        
+    }
+
+    @media (max-width: 768px) {
+        .NavbarItems {
+            display: none;
+        }
+        
+        .Buttons{
+            margin-left: 200px;
+        }
+        
     }
 `;

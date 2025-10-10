@@ -1,5 +1,4 @@
 import styles from "./Button.module.css";
-import cn from "../utils/cn";
 import { NavLink } from "react-router-dom";
 
 export default function Button({
@@ -7,8 +6,8 @@ export default function Button({
   className,
   variant = "default",
   size = "md",
-  to,        // ruta opcional
-  onClick,   // función opcional
+  to,        
+  onClick,   
   ...props
 }) {
   // Si hay prop 'to', renderiza como link
@@ -16,7 +15,7 @@ export default function Button({
     return (
       <NavLink to={to}>
         <button
-          className={cn(styles.btn, className)}
+          className={styles.btn}
           data-variant={variant}
           data-size={size}
           {...props}
@@ -30,7 +29,7 @@ export default function Button({
   // Si no hay 'to', renderiza como botón normal
   return (
     <button
-      className={cn(styles.btn, className)}
+      className={styles.btn}
       data-variant={variant}
       data-size={size}
       onClick={onClick}

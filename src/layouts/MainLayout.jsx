@@ -1,4 +1,3 @@
-// src/layouts/MainLayout.jsx
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/comun/Navbar";
@@ -8,17 +7,20 @@ import styled from "styled-components";
 
 export function MainLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  
 
   return (
     <Container className={sidebarOpen ? "active" : ""}>
-      <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      <Aside>
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+      </Aside>
       <Main>
         <Navbar />
         <Content>
           <Outlet />
         </Content>
-        <Footer />
+        <Foot>
+          <Footer />
+        </Foot>
       </Main>
     </Container>
   );
@@ -34,6 +36,28 @@ const Container = styled.div`
   transition: all 0.3s;
   &.active{
     grid-template-columns: 300px 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+
+    &.active {
+      grid-template-columns: 1fr;
+    }
+  }
+`;
+
+const Aside = styled.aside`
+  /* 👉 Ocultar sidebar en mobile */
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const Foot = styled.footer`
+  /* 👉 Ocultar footer en mobile */
+  @media (max-width: 768px) {
+    display: none;
   }
 `;
 

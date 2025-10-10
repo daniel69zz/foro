@@ -65,7 +65,7 @@ export function ThreadContent({ content, createdAt, authorId }){
             <div className="ThereadBody">
                 <div className="ThreadUserInfo">
                     <Avatar size="xxl" shape="circle" ring user={name_user(authorId)}>
-                        <AvatarImage src={`/${avatar_user(authorId)}`} alt="Sarah Chen"/>
+                        <AvatarImage src={`/${avatar_user(authorId)}`} alt={name_user(authorId)}/>
                         <AvatarFallback>Not Found</AvatarFallback>
                     </Avatar>
                 </div>
@@ -90,15 +90,19 @@ const Container = styled.div`
     
 
     .ThereadBody{
-        gap: 20px;
+        gap: 50px;
         display: grid;
-        grid-template-columns: 10% 1px 1fr;
+        /* grid-template-columns: 10% 1px 1fr; */
+        /* Fija la 1ª col, alinea el divisor, y deja la 3ª crecer/encoger */
+        grid-template-columns: 130px 3px minmax(0, 1fr);
         background-color: ${(props) => props.theme.cardcolor};
         align-items: center;
+        /* align-items: start; */
         margin: 16px auto;
         border-radius: 10px;
         width: 98%;               
         height: 100%;
+        min-height: 0;
 
         .ThreadUserInfo{
             padding: 20px;
@@ -106,7 +110,10 @@ const Container = styled.div`
 
         .ThreadContent{
             color: ${(props) => props.theme.text};
-            padding: 20px;
+            padding: 16px;
+
+            min-width: 0;
+
             .ThreadContentHeader{
                 display: flex;
                 gap: 12px
@@ -120,7 +127,6 @@ const Container = styled.div`
 `;
 
 const Divider = styled.div`
-    width: 3px;
     height: 100%;
     background: ${(props) => props.theme.bg3};
     margin: ${v.lgSpacing} 0;
