@@ -8,12 +8,12 @@
 }
 
 input{
-  padding: 5px;
+  padding: 1px;
 }
 .inputLabel { 
   display: block;
   font-weight: 600;
-  font-size: 9px;
+  font-size: 13px;
   margin: 0 0 2px 4px;
 } 
 
@@ -22,7 +22,7 @@ input{
   border-radius: 8px;
   padding: 1.5px; /* espacio para el “envoltorio” al enfocar */
   transition: background-color 0.2s;
-  width: 250px;
+  width: 100%;
 }
 
 .inputWrapper:focus-within {
@@ -37,8 +37,7 @@ input{
   padding: 5px 10px;
   background-color: #f5f5f5;     /* fondo ligeramente gris */
   transition: border-color 0.2s, background-color 0.2s;
-  width: 100%;
-  max-width: 400px;            /* ancho máximo para que no se extienda demasiado */
+  width: 100%;        /* ancho máximo para que no se extienda demasiado */
 }
 .inputInner input {
   border: none;
@@ -46,7 +45,7 @@ input{
   flex: 1;
   background: transparent;       /* para no tapar el fondo del contenedor */
   max-width: none;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .inputInner:focus-within {
@@ -54,7 +53,9 @@ input{
 }
 
 .inputIcon {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   margin-right: 8px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }

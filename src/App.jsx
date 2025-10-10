@@ -1,76 +1,54 @@
+// src/App.jsx
 import React, { useState } from "react";
-import { BrowserRouter } from "react-router-dom"
-import { MyRoutes } from "./routers/routes"
-
-import { Navbar } from "./components/comun/Navbar";
-import { Sidebar } from './components/comun/Sidebar';
-import { Light, Dark } from "./styles/Theme"
-
-import styled from "styled-components"
-import { ThemeProvider } from "styled-components"
-
-
+import { BrowserRouter } from "react-router-dom";
+import { MyRoutes } from "./routers/routes";
+import { ThemeProvider } from "styled-components";
+import { Light, Dark } from "./styles/Theme";
 
 export const ThemeContext = React.createContext(null);
+
+/* ErrorBoundary simple */
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
+  }
+  componentDidCatch(error, info) {
+    console.error("ErrorBoundary caught:", error, info);
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{ padding: 20 }}>
+          <h2>Ocurrió un error al renderizar la aplicación</h2>
+          <pre style={{ whiteSpace: "pre-wrap", color: "red" }}>
+            {String(this.state.error)}
+          </pre>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 function App() {
   const [theme, setTheme] = useState("dark");
   const themeStyle = theme === "light" ? Light : Dark;
 
-  const [sidebarOpen, setSidebarOpen] = useState(false);
-
   return (
-    <>
-      <ThemeContext.Provider value={{setTheme, theme}}>
-        <ThemeProvider theme = {themeStyle}>
-          <BrowserRouter>
-            <Container className={sidebarOpen ? "active" : ""}>
-              <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen}/>
-              <Main>
-                <Navbar className="navbar"/>
-                <Content>
-                  <MyRoutes/>
-                </Content>
-              </Main>
-            </Container>
-          </BrowserRouter>
-        </ThemeProvider>
-        
-      </ThemeContext.Provider>
-      
-    </>
-  )
+    <ThemeContext.Provider value={{ setTheme, theme }}>
+      <ThemeProvider theme={themeStyle}>
+        <BrowserRouter>
+          <ErrorBoundary>
+            <MyRoutes />
+          </ErrorBoundary>
+        </BrowserRouter>
+      </ThemeProvider>
+    </ThemeContext.Provider>
+  );
 }
-const Container = styled.div`
-  display: grid;
-  grid-template-columns: 120px auto;    
-  background: ${({theme}) => theme.bgtotal};
-  /* min-height: 100vh; */
-  height: 100dvh;
-  min-height: 0;
 
-  transition: all 0.3s;
-  &.active{
-    /* grid-template-columns: 300px auto; */
-    grid-template-columns: 300px 1fr;
-  }
-`;
-
-
-const Main = styled.main`
-  /* flex: 1;
-  display: flex;
-  flex-direction: column; */
-
-  display: grid;
-  grid-template-rows: auto 1fr;
-  min-width: 0;
-  min-height: 0;
-`;
-
-const Content = styled.div`
-  overflow: auto;   /* ⬅️ el scroll vive aquí */
-  min-height: 0;
-  -webkit-overflow-scrolling: touch;
-`;
-export default App
+export default App;

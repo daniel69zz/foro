@@ -1,7 +1,9 @@
 export const Light ={
     cardcolor: "#3f60c5",
     labelcolor: "#000",
-    
+    bordercolor: "#ccc",
+    borderColor: "#ff0000",
+
     body: "#fff",
     text: "#202020",
     bodyRgba: "255, 255, 255",
@@ -48,7 +50,24 @@ export const Light ={
     texttertiary: "#969593",
     //toggle
     lightbackground: "linear-gradient(-225deg, #E3FDF5 0%, #FFE6FA 100%)",
-  lightcheckbox: "#fce100"
+  lightcheckbox: "#fce100",
+    loginCard: {
+      si: "#3578f6",
+      background: "#ffffff",
+      buttonBg2: "#eeeeee",
+      textPrimary: "#202020",
+      textSecondary: "#717182",
+      inputBg: "#f5f5f5",
+      inputText: "#ffffff",
+      inputPlaceholder: "#a6a6a6",
+      buttonBg: "#3578f6",
+      buttonText: "#ffffff",
+      buttonHover: "#2c65d0",
+      linkColor: "#674188",
+      linkHover: "#512fbb",
+      border: "#858dff",
+      line: "#e0e0e0",
+  }
 }
 export const Dark = {
     cardcolor: "#1a1f2e",
@@ -94,10 +113,28 @@ export const Dark = {
   
     white: "#ffffff",
   
-    textprimary: "#ffffff",
+    textprimary: "#090606",
     textsecondary: "#f1f1f1",
     texttertiary: "#969593",
     //toggle
     darkbackground:"linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898", 
-    darkcheckbox: "#757575"
-}
+    darkcheckbox: "#757575",
+
+    loginCard: {
+      si: "#2661d9",
+      background: "#1a1f2e",
+      buttonBg2: "#191f32",
+      textPrimary: "#ffffff",
+      textSecondary: "#a6a6a6",
+      inputBg: "#252b3c",
+      inputText: "#ffffff",
+      inputPlaceholder: "#717182",
+      buttonBg: "#3578f6",
+      buttonText: "#ffffff",
+      buttonHover: "#2a5ec8",
+      linkColor: "#f9c74f",
+      linkHover: "#ffd95c",
+      border: "#2c3142",
+      line: "#3a3f55",
+  }
+};

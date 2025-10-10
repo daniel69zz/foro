@@ -7,42 +7,47 @@ import { User, Mail, Lock } from "lucide-react";
 import Link from "../comun/Link";
 import IconButton from "../comun/IconButton";
 
-export default function LoginCard() {
+export default function RegisterCard() {
   return (
-    <ContentRegisterCard>
+    <ContentLoginCard>
       <IconButton className="botonCerrar" to="/"/>
       <Texto icono={User} className="texto1" iconClassName="icono1">
-        Bienvenido de vuelta
+        Entra a UCB comunity !
       </Texto>
       <Texto hasAnIcon={false} className="texto2">
-        Ingresa a tu cuenta para poder interactuar en el foro
+        Crea una nueva cuenta y entra a la comunidad
       </Texto>
+      <Input id="in_email" icon={User} placeholderText="Ingresa tu nombre" labelText="Nombre" className3="input1" />
       <Input id="in_email" icon={Mail} placeholderText="Ingresa tu email" labelText="Email" className3="input1" />
       <Input
-        id="in_hash"
         icon={Lock}
         placeholderText="Ingresa tu contraseña"
         labelText="Password"
         type="password"
-        tipo="tipo1"
-        className3="input2"
+        className3="input1"
       />
-      <Link href="https://google.com" external className="link1">
-        La olvidaste?
-      </Link>
+      <Input
+        icon={Lock}
+        placeholderText="Confirma tu contraseña"
+        labelText="Confirm Password"
+        type="password"
+        tipo="tipo1"
+        className3="input1"
+      />
+      <Line />
       <Button className="boton1" data-variant="login" size="login">
-        Iniciar Sesión
+        Crear Cuenta
       </Button>
       <Line />
-      <Texto className="texto3"hasAnIcon={false}>No tienes una cuenta?</Texto>
-      <Button className="boton2" data-variant="login" size="login" to="/register">
-        Crear Cuenta
+      <Texto className="texto3"hasAnIcon={false}>Ya tienes una cuenta?</Texto>
+      <Button className="boton2" data-variant="login" size="login" to="/login">
+        Iniciar Secion
       </Button >
-    </ContentRegisterCard>
+    </ContentLoginCard>
   );
 }
 
-const ContentRegisterCard = styled.div`
+const ContentLoginCard = styled.div`
   display: flex;
   flex-direction: column;
   padding: 5px 15px 15px 15px;
@@ -57,12 +62,6 @@ const ContentRegisterCard = styled.div`
     background-color: ${({ theme }) => theme.loginCard.buttonBg2};
     border: 1px solid ${({ theme }) => theme.loginCard.border};
   }.input1 svg{
-    color: ${({ theme }) => theme.loginCard.textSecondary};
-  }
-  .input2{
-    background-color: ${({ theme }) => theme.loginCard.buttonBg2};
-    border: 1px solid ${({ theme }) => theme.loginCard.border};
-  }.input2 svg{
     color: ${({ theme }) => theme.loginCard.textSecondary};
   }
 

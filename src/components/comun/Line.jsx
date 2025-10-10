@@ -1,20 +1,10 @@
-import styles from "./Line.module.css";
+import styled from "styled-components";
 
-export default function Line({
-  color = "rgba(0, 0, 0, 0.15)",
-  marginTop = "10px",
-  marginBottom = "10px",
-  width = "100%",
-  height = "1px",
-  className,
-}) {
-  const style = {
-    backgroundColor: color,
-    marginTop,
-    marginBottom,
-    width,
-    height,
-  };
+export const Line = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${({ theme }) => theme.loginCard.border};
+  margin: 15px 0;
+`;
 
-  return <div className={`${styles.line} ${className || ""}`} style={style}></div>;
-}
+export default Line;
