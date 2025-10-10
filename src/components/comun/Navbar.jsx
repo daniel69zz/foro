@@ -7,7 +7,7 @@ import {NavLink} from "react-router-dom";
 import {v} from "../../styles/Variables";
 
 
-export function Navbar({ onLoginClick }) {
+export function Navbar() {
     return (
         <Container>
             {
@@ -24,7 +24,7 @@ export function Navbar({ onLoginClick }) {
                 ))
             }
 
-           <Button size="lg" onClick={onLoginClick}>Iniciar Sesion</Button>
+           <Button size="lg" to="/login">Iniciar Sesion</Button>
 
         </Container>
     );

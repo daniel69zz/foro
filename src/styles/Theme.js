@@ -8,7 +8,24 @@ export const Light ={
     primary: "rgb(52, 131, 235)",
     bg4:"#9247FC",
     bgtotal:"#EDF3FB",
-    bgtgderecha:"#fff"
+    bgtgderecha:"#fff",
+    loginCard: {
+      si: "#3578f6",
+      background: "#ffffff",
+      buttonBg2: "#eeeeee",
+      textPrimary: "#202020",
+      textSecondary: "#717182",
+      inputBg: "#f5f5f5",
+      inputText: "#ffffff",
+      inputPlaceholder: "#a6a6a6",
+      buttonBg: "#3578f6",
+      buttonText: "#ffffff",
+      buttonHover: "#2c65d0",
+      linkColor: "#674188",
+      linkHover: "#512fbb",
+      border: "#858dff",
+      line: "#e0e0e0",
+  }
 }
 export const Dark = {
     
@@ -22,4 +39,21 @@ export const Dark = {
     primary: "rgb(52, 131, 235)",
     bg4:"#9247FC",
     bgtotal:"#0a0f1c",
+    loginCard: {
+      si: "#2661d9",
+      background: "#1a1f2e",
+      buttonBg2: "#191f32",
+      textPrimary: "#ffffff",
+      textSecondary: "#a6a6a6",
+      inputBg: "#252b3c",
+      inputText: "#ffffff",
+      inputPlaceholder: "#717182",
+      buttonBg: "#3578f6",
+      buttonText: "#ffffff",
+      buttonHover: "#2a5ec8",
+      linkColor: "#f9c74f",
+      linkHover: "#ffd95c",
+      border: "#2c3142",
+      line: "#3a3f55",
+  }
 }
