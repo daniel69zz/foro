@@ -35,11 +35,10 @@
 }
 .badge[data-variant="label"] {
   font-size: 16px;
-  margin-bottom: 1  0px;
   font-weight: bold;
 }
 
-.badge[ data-pad = "false"]{
+.badge[data-pad="false"]{
   padding: 0 0;
 }
 
