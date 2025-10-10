@@ -38,12 +38,6 @@ const LinksNav = [
     },
 
     {
-        label: "Contactanos",
-        icon: <LuContactRound/>,
-        to: "/contactos"
-    },
-
-    {
         label: "Popular",
         icon: <ImFire/>,
         to: "/popular"

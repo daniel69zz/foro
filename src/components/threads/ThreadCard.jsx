@@ -1,22 +1,17 @@
 import styled from "styled-components";
 import { Badge } from "../comun/Badge";
+import {Texto} from "../comun/Texto";
 
 import { MdOutlineMessage } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRegClock, FaRegShareFromSquare  } from "react-icons/fa6";
+import { useState } from "react";
 
-import {Texto} from "../comun/Texto";
-
+import { slug_id, hearts_id, messages_id } from "../utils/data_static";
 import { hora } from "../utils/time"
 import { NavLink } from "react-router-dom";
 
 function valid_icon(img){
-    // if (typeof imgCard === "string") {
-    //     return false;
-    // } else if (typeof imgCard === "function") {
-    //     return true;
-    // }
-
     if (typeof img === "function"){
         return true;
     }
@@ -26,7 +21,9 @@ function valid_icon(img){
 
 export function ThreadCard({ id, imgCard, title, authorId, createdAt, content, tags, thread = true, post=true, ...props}){
     const Icon = imgCard;
-    
+    const [hearts, setHearts] = useState(post ? hearts_id(id) : 0);
+    const [messages, setMessages] = useState(post ? hearts_id(id) : 0);
+
 
     return (
         <Card $conten={thread}>
@@ -51,7 +48,7 @@ export function ThreadCard({ id, imgCard, title, authorId, createdAt, content, t
                             <FaRegClock/>
                             <Badge text={hora()} variant="label"/>
                             <Badge text="•" variant="label"/>
-                            <Badge text="Development"></Badge>
+                            <Badge text={slug_id(id)}></Badge>
                         </div>
 
                         <div className="ThreadBodyContent">
@@ -67,17 +64,17 @@ export function ThreadCard({ id, imgCard, title, authorId, createdAt, content, t
                             <div className="ThreadInfoIcons">
                                 <div className="IconCount">
                                     <MdOutlineMessage />
-                                    <span>32</span>
+                                    <button onClick={() => setMessages(c => c+1)}>{messages}</button>
                                 </div>
                                 
                                 <div className="IconCount">
                                     <FaRegHeart />
-                                    <span>19</span>
+                                    <button onClick={() => setHearts(c => c+1)}>{hearts}</button>
                                 </div>
 
 
                                 <div className="IconCount">
-                                    <FaRegShareFromSquare />
+                                    <a href="https://google.com" target="_blank"><FaRegShareFromSquare /></a>
                                 </div>
                             </div>
                         </div>
@@ -150,12 +147,26 @@ const Card = styled.article`
             display: flex;
             gap: 30px;
 
+            
+            button{
+                background-color: ${({theme}) => theme.bgtotal};
+                all: unset;
+            }
+            
             .IconCount{
+                cursor: pointer;
                 display: flex;
                 align-items: center;
                 gap: 6px;
                 font-weight: bold;
 
+                &:hover{
+                    color: #1d4070;
+                }
+                a{
+                    text-decoration: none;
+                    color: inherit;
+                }
             }
             svg{
                 height: 50px;
