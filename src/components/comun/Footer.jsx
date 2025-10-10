@@ -1,4 +1,3 @@
-// src/components/comun/Footer.jsx
 import styled from "styled-components";
 import { v } from "../../styles/Variables";
 import { Github, Twitter, Linkedin, Mail, MapPin, Phone } from "lucide-react";
@@ -35,17 +34,17 @@ export default function Footer() {
 
             <Col>
                 <h4 className="ColTitle">Links</h4>
-                <Social>
-                    <IconLink href="#" aria-label="GitHub">
+                <div className="social">
+                    <IconLink href="https://github.com/daniel69zz/foro" target="_blank" aria-label="GitHub">
                         <Github />
                     </IconLink>
                     <IconLink href="#" aria-label="Twitter">
                         <Twitter />
                     </IconLink>
-                    <IconLink href="#" aria-label="LinkedIn">
+                    <IconLink href="https://www.linkedin.com/in/luis-daniel-rojas-caceres-132897274/" target="_blank" aria-label="LinkedIn">
                         <Linkedin />
                     </IconLink>
-                </Social>
+                </div>
             </Col>
         </Cols>
       </Content>
@@ -97,8 +96,14 @@ const Col = styled.div`
     margin-bottom: 20px;
     color: ${(p) => p.theme.text};
   }
-  .Info{
+
+  .social{
     align-items: center;
+    display: flex;
+    gap: 6px;
+
+  }
+  .Info{
     display: flex;
     align-items: center;
     gap: 6px;
@@ -120,11 +125,6 @@ const Col = styled.div`
   }
 `;
 
-const Social = styled.div`
-    display: flex;
-    gap: .5rem;
-    margin-top: .5rem;
-`;
 
 const IconLink = styled.a`
     display: inline-flex;
