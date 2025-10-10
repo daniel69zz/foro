@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Navbar } from "../components/comun/Navbar";
 import { Sidebar } from "../components/comun/Sidebar";
-import Footer from "../components/comun/Footer"
+import Footer from "../components/comun/Footer";
 import styled from "styled-components";
 
 export function MainLayout() {
@@ -28,13 +28,13 @@ export function MainLayout() {
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: 120px auto;    
-  background: ${({theme}) => theme.bgtotal};
+  grid-template-columns: 120px auto;
+  background: ${({ theme }) => theme.bgtotal};
   height: 100dvh;
   min-height: 0;
 
   transition: all 0.3s;
-  &.active{
+  &.active {
     grid-template-columns: 300px 1fr;
   }
 
@@ -48,14 +48,12 @@ const Container = styled.div`
 `;
 
 const Aside = styled.aside`
-  /* 👉 Ocultar sidebar en mobile */
   @media (max-width: 768px) {
     display: none;
   }
 `;
 
 const Foot = styled.footer`
-  /* 👉 Ocultar footer en mobile */
   @media (max-width: 768px) {
     display: none;
   }
@@ -69,7 +67,7 @@ const Main = styled.main`
 `;
 
 const Content = styled.div`
-  overflow: auto; 
+  overflow: auto;
   min-height: 0;
   -webkit-overflow-scrolling: touch;
 `;
