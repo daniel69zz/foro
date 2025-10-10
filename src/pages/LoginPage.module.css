@@ -1,20 +1,2 @@
-/* LoginPage.module.css */
 
-.content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: auto;
-  width: auto;
-  margin: 0;
-  padding: 2rem;
-  background-color: white;
-  border-radius: 1rem;
-}
 
-.contentLoginCard2 {
-  width: 350px;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-}

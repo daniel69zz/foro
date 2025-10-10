@@ -7,7 +7,8 @@ export default function ModalLogin({ children, onClose }) {
         left: 0,
         width: "100%",
         height: "100%",
-        background: "rgba(0,0,0,0.5)", // fondo oscuro
+        // background: "rgba(0,0,0,0.5)", // fondo oscuro
+        backdropFilter: "blur(4px)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -17,7 +18,7 @@ export default function ModalLogin({ children, onClose }) {
     >
       <div
         style={{
-          background: "white",
+    
           borderRadius: "1rem",
           padding: "2rem",
           position: "relative",
