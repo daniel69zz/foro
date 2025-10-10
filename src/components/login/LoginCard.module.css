@@ -36,7 +36,13 @@
 .boton1:active {
   background-color: black;
 }
-
+.checkboxContainer {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+    margin-top: 10px;
+    width: 100%; 
+}
 .link1{
   font-size: 0.45rem;
   color: #a4a7ac;
@@ -54,4 +60,7 @@
   margin-bottom: 1px;
 }.botonCerrar { 
   margin-left: auto;
+}
+.boton1 {
+    width: 100%; 
 }
