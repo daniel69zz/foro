@@ -1,34 +1,35 @@
 import styles from "./Button.module.css";
 import { NavLink } from "react-router-dom";
 
+import styled from "styled-components";
 export default function Button({
   children,
   className,
   variant = "default",
   size = "md",
-  to,        
-  onClick,   
+  to,
+  onClick,
   ...props
 }) {
   // Si hay prop 'to', renderiza como link
   if (to) {
     return (
       <NavLink to={to}>
-        <button
+        <Container
           className={styles.btn}
           data-variant={variant}
           data-size={size}
           {...props}
         >
           {children}
-        </button>
+        </Container>
       </NavLink>
     );
   }
 
   // Si no hay 'to', renderiza como botón normal
   return (
-    <button
+    <Container
       className={styles.btn}
       data-variant={variant}
       data-size={size}
@@ -36,6 +37,10 @@ export default function Button({
       {...props}
     >
       {children}
-    </button>
+    </Container>
   );
 }
+
+const Container = styled.button`
+  background-color: ${(props) => props.theme.cardcolor};
+`;

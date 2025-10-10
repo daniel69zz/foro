@@ -1,30 +1,27 @@
 .badge {
   display: inline-flex;
   align-items: center;
-  gap: .25rem;
+  gap: 0.25rem;
 
   border: 1px solid transparent;
-  border-radius: .375rem;
-  padding: .125rem .5rem; /* py-0.5 px-2 aprox */
-  font-size: .75rem;      /* text-xs */
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
   font-weight: 500;
   white-space: nowrap;
   width: fit-content;
-  /* overflow: hidden; */
-  transition: color .2s ease, box-shadow .2s ease;
+  transition: color 0.2s ease, box-shadow 0.2s ease;
 }
 
-/* estados comunes */
 .badge:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 3px hsl(210 100% 50% / .35); /* ring */
+  box-shadow: 0 0 0 3px hsl(210 100% 50% / 0.35);
 }
 .badge[aria-invalid="true"] {
-  /* ajusta si quieres un ring rojo cuando es inválido */
-  box-shadow: 0 0 0 3px hsl(0 85% 50% / .2);
+  box-shadow: 0 0 0 3px hsl(0 85% 50% / 0.2);
 }
 
-/* VARIANTS */
+/* VARIANTES */
 .badge[data-variant="default"] {
   background: var(--primary, #0ea5e9);
   color: var(--on-primary, #fff);
@@ -38,8 +35,6 @@
   font-weight: bold;
 }
 
-.badge[data-pad="false"]{
+.badge[data-pad="false"] {
   padding: 0 0;
 }
-
-
