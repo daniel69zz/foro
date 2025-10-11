@@ -42,5 +42,5 @@ export default function Button({
 }
 
 const Container = styled.button`
-  background-color: ${(props) => props.theme.cardcolor};
+  background-color: ${(props) => props.theme.primary};
 `;

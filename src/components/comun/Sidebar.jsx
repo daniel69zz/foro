@@ -206,12 +206,8 @@ const Container = styled.div`
           display: grid;
           justify-items: center;
           align-content: center;
-          /* height: 100vh;
-                    width: 100vw; */
           height: auto;
           width: auto;
-
-          font-family: "Lato", sans-serif;
         }
 
         .demo {

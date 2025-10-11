@@ -7,7 +7,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { FaRegClock, FaRegShareFromSquare } from "react-icons/fa6";
 import { useState } from "react";
 
-import { slug_id, hearts_id, messages_id } from "../utils/data_static";
+import { slug_id, hearts_id } from "../utils/data_static";
 import { hora } from "../utils/time";
 import { NavLink } from "react-router-dom";
 

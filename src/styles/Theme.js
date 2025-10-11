@@ -5,7 +5,7 @@ export const Light = {
   body: "#fff",
   bg: "rgba(38, 135, 184, 1)",
   bg3: "rgb(230,230,230)",
-  primary: "rgb(52, 131, 235)",
+  primary: "#1a1f2e",
   bg4: "#9247FC",
   bgtotal: "#EDF3FB",
   bgtgderecha: "#fff",
