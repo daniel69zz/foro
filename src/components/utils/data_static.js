@@ -106,7 +106,7 @@ export const secondarylinksArray = [
   {
     label: "Salir",
     Icon: MdLogout,
-    to: "/",
+    to: "/exit",
   },
 ];
 

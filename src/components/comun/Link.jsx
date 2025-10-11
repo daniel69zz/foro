@@ -1,10 +1,17 @@
 import styles from "./Link.module.css";
+import cn from "../utils/cn";
 
-export default function Link({ children, href = "#", className, external = false, ...props }) {
+export default function Link({
+  children,
+  href = "#",
+  className,
+  external = false,
+  ...props
+}) {
   return (
     <a
       href={href}
-      className={styles.link}
+      className={cn(styles.link, className)}
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       {...props}
     >

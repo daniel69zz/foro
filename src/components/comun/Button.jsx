@@ -1,7 +1,7 @@
 import styles from "./Button.module.css";
 import { NavLink } from "react-router-dom";
+import cn from "../utils/cn";
 
-import styled from "styled-components";
 export default function Button({
   children,
   className,
@@ -15,21 +15,21 @@ export default function Button({
   if (to) {
     return (
       <NavLink to={to}>
-        <Container
-          className={styles.btn}
+        <button
+          className={cn(styles.btn, className)}
           data-variant={variant}
           data-size={size}
           {...props}
         >
           {children}
-        </Container>
+        </button>
       </NavLink>
     );
   }
 
   // Si no hay 'to', renderiza como botón normal
   return (
-    <Container
+    <button
       className={styles.btn}
       data-variant={variant}
       data-size={size}
@@ -37,10 +37,6 @@ export default function Button({
       {...props}
     >
       {children}
-    </Container>
+    </button>
   );
 }
-
-const Container = styled.button`
-  background-color: ${(props) => props.theme.primary};
-`;
