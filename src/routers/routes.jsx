@@ -1,4 +1,3 @@
-// src/routers/routes.jsx
 import { Routes, Route } from "react-router-dom";
 import { MainLayout } from "../layouts/MainLayout";
 import { AuthLayout } from "../layouts/AuthLayout";

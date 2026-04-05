@@ -1,16 +1,42 @@
-# React + Vite
+# UCB - COMMUNITY (PROYECTO FORO)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es un proyecto para un prototipo de foro para la universidad desarrollado principalmente con React
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🚀 Tecnologías principales
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+**Frontend**
 
-## Expanding the ESLint configuration
+- ⚛️ [React](https://react.dev/) — Librería principal para la interfaz.
+- ⚡ [Vite](https://vitejs.dev/) — Entorno de desarrollo rápido.
+- 💅 [styled-components](https://styled-components.com/) — Estilos con soporte para temas dinámicos (modo claro/oscuro).
+- 🧭 [React Router DOM](https://reactrouter.com/) — Navegación entre páginas y rutas dinámicas.
+- 🎨 [Lucide Icons / React Icons](https://lucide.dev/) — Sistema de iconos personalizable.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Backend (en desarrollo / integración futura)**
+
+- 🟩 [Node.js](https://nodejs.org/) + [Express](https://expressjs.com/) — Servidor para manejar usuarios, publicaciones y comentarios.
+- 🐘 [PostgreSQL](https://www.postgresql.org/) — Base de datos relacional (planificada).
+
+## 🧠 Características principales
+
+- 🌓 **Modo Claro / Oscuro** con `ThemeProvider` y variables temáticas.
+- 💬 **Sistema de hilos y comentarios** (simulado con datos estáticos por ahora).
+- 🧩 **Componentes reutilizables** (`Texto`, `Badge`, `Button`, `Input`, `IconButton`, etc.).
+- 🧭 **Navegación dinámica** con `React Router`.
+- 📱 **Diseño responsivo** compatible con móviles (con `BottomBar` adaptable).
+- 🔒 **Pantalla de Login / Modal** estilizada con `styled-components`.
+
+---
+
+## ⚙️ Instalación y ejecución
+
+### 1️⃣ Clona el repositorio
+
+```bash
+git clone https://github.com/<tu-usuario>/<tu-repo>.git
+cd foro-frontend
+```
